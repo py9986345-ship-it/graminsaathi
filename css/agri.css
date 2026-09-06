@@ -1,0 +1,92 @@
+/* Hero Banner */
+.page-banner {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('../images/agri-banner.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.page-banner h1 {
+    font-size: 70px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* intro section */
+.agri-intro {
+    padding: 70px 20px;
+    text-align: center;
+    background: #f8f8f8;
+}
+
+.agri-intro h2 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.agri-intro p {
+    font-size: 20px;
+    color: gray;
+}
+
+/* cards section */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 30px;
+    padding: 50px;
+    background: #f5f5f5;
+}
+
+.agri-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+    transition: 0.4s;
+}
+
+.agri-card:hover {
+    transform: translateY(-10px);
+}
+
+/* card image */
+.agri-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.agri-card-content {
+    padding: 20px;
+}
+
+.agri-card h3 {
+    color: green;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.agri-btn {
+    background: green;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+
+
+

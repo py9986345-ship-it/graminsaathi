@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Success Stories</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7f2;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    background:#14532d;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:34px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#4ade80;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#86efac;
+}
+
+/* HERO */
+
+.hero{
+    height:75vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),
+    url('images/success-banner.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:72px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:24px;
+    margin-bottom:30px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#16a34a;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    background:#15803d;
+}
+
+/* SECTION */
+
+.section-title{
+    text-align:center;
+    padding:70px 20px 20px;
+}
+
+.section-title h2{
+    font-size:52px;
+    color:#1f2937;
+}
+
+.section-title p{
+    color:gray;
+    margin-top:15px;
+    font-size:20px;
+}
+
+/* STORY CARDS */
+
+.story-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:35px;
+    padding:50px;
+}
+
+.story-card{
+    width:360px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.story-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.story-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    color:#15803d;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.card-content p{
+    color:#374151;
+    margin-bottom:15px;
+    line-height:1.6;
+}
+
+.card-content button{
+    padding:12px 25px;
+    border:none;
+    background:#15803d;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card-content button:hover{
+    background:#14532d;
+}
+
+/* STATS SECTION */
+
+.stats{
+    background:white;
+    padding:80px 10%;
+}
+
+.stats-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.stats-title h2{
+    font-size:48px;
+    color:#1f2937;
+}
+
+.stats-boxes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.stats-box{
+    background:#ecfdf5;
+    padding:40px;
+    border-radius:18px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.stats-box:hover{
+    transform:translateY(-8px);
+}
+
+.stats-box i{
+    font-size:50px;
+    color:#16a34a;
+    margin-bottom:20px;
+}
+
+.stats-box h3{
+    font-size:38px;
+    color:#14532d;
+    margin-bottom:10px;
+}
+
+.stats-box p{
+    color:#374151;
+}
+
+/* FOOTER */
+
+.footer{
+    background:#14532d;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero-content h1{
+    font-size:42px;
+}
+
+.hero-content p{
+    font-size:18px;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.section-title h2{
+    font-size:38px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+Gramin <span>Saathi</span>
+</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="agri-business.html">Agri Business</a>
+<a href="government-schemes.html">Schemes</a>
+<a href="success-story.html">Success Stories</a>
+<a href="blog.html">Blogs</a>
+<a href="contact-one.html">Contact</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Farmer Success Stories</h1>
+
+<p>Real Inspiration From Successful Agriculture Entrepreneurs</p>
+
+<a href="#stories" class="hero-btn">Explore Stories</a>
+
+</div>
+
+</section>
+
+<!-- STORIES -->
+
+<section id="stories">
+
+<div class="section-title">
+
+<h2>Inspiring Agriculture Journeys</h2>
+
+<p>Meet farmers who transformed their lives through agriculture</p>
+
+</div>
+
+<div class="story-container">
+
+<!-- CARD 1 -->
+
+<div class="story-card">
+
+<img src="images/farmer1.jpg" alt="Farmer">
+
+<div class="card-content">
+
+<h3>Organic Farming Success</h3>
+
+<p>Ramesh Kumar started organic farming on 2 acres and now earns ₹12 lakh annually.</p>
+
+<button>Read More</button>
+
+</div>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="story-card">
+
+<img src="images/farmer2.jpg" alt="Farmer">
+
+<div class="card-content">
+
+<h3>Dairy Business Growth</h3>
+
+<p>Sunita Devi expanded from 2 cows to a profitable dairy business supplying milk daily.</p>
+
+<button>Read More</button>
+
+</div>
+
+</div>
+
+<!-- CARD 3 -->
+
+<div class="story-card">
+
+<img src="images/farmer3.jpg" alt="Farmer">
+
+<div class="card-content">
+
+<h3>Mushroom Farming Journey</h3>
+
+<p>Aman Sharma built a successful mushroom farming startup with minimal investment.</p>
+
+<button>Read More</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="stats-title">
+
+<h2>Agriculture Impact</h2>
+
+</div>
+
+<div class="stats-boxes">
+
+<div class="stats-box">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>500+</h3>
+
+<p>Successful Farmers</p>
+
+</div>
+
+<div class="stats-box">
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+<h3>₹20Cr+</h3>
+
+<p>Total Farmer Earnings</p>
+
+</div>
+
+<div class="stats-box">
+
+<i class="fa-solid fa-seedling"></i>
+
+<h3>1000+</h3>
+
+<p>Organic Farms Created</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<p>© 2026 Gramin Saathi. All Rights Reserved.</p>
+
+</footer>
+
+<script src="success.js"></script>
+
+</body>
+</html>

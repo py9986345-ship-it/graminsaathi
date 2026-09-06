@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Gramin Saathi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background:#f4f6f4; font-family: Arial, sans-serif; }
+    .topbar {
+      background:#2e7d32; color:#fff; padding:15px 25px; display:flex;
+      justify-content:space-between; align-items:center;
+    }
+    .topbar h3 { margin:0; font-size:19px; }
+    .topbar button {
+      background:#fff; color:#2e7d32; border:none; padding:7px 16px;
+      border-radius:5px; cursor:pointer; font-weight:600;
+    }
+    .container-main { max-width: 1100px; margin: 25px auto; padding: 0 15px; }
+    .tabs { display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
+    .tab-btn {
+      padding:9px 18px; background:#fff; border:1px solid #ddd; border-radius:6px;
+      cursor:pointer; font-size:14px; font-weight:600; color:#444;
+    }
+    .tab-btn.active { background:#2e7d32; color:#fff; border-color:#2e7d32; }
+    .panel { display:none; background:#fff; padding:22px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+    .panel.active { display:block; }
+    .panel h4 { margin-top:0; color:#2e7d32; }
+    table { width:100%; border-collapse: collapse; margin-top:12px; }
+    th, td { text-align:left; padding:9px 8px; border-bottom:1px solid #eee; font-size:13.5px; vertical-align:top; }
+    th { color:#666; font-size:12px; text-transform:uppercase; }
+    .btn-sm { padding:5px 11px; font-size:12px; border-radius:4px; border:none; cursor:pointer; margin-right:5px; }
+    .btn-edit { background:#e3f2e3; color:#2e7d32; }
+    .btn-delete { background:#fdecea; color:#c0392b; }
+    .btn-approve { background:#e3f2e3; color:#2e7d32; }
+    form.inline-form input, form.inline-form textarea, form.inline-form select {
+      width:100%; padding:9px; margin-bottom:10px; border:1px solid #ddd; border-radius:5px; font-size:13.5px;
+    }
+    form.inline-form textarea { min-height:110px; }
+    form.inline-form button {
+      background:#2e7d32; color:#fff; border:none; padding:9px 20px; border-radius:5px; cursor:pointer;
+    }
+    .badge-unread { background:#c0392b; color:#fff; padding:2px 7px; border-radius:10px; font-size:11px; }
+    .badge-pending { background:#f39c12; color:#fff; padding:2px 7px; border-radius:10px; font-size:11px; }
+    .empty-note { color:#888; font-size:13px; padding:15px 0; }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <h3>🌾 Gramin Saathi — Admin Panel</h3>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div class="container-main">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="blogsPanel">📝 Blogs</button>
+      <button class="tab-btn" data-tab="messagesPanel">📩 Messages</button>
+      <button class="tab-btn" data-tab="testimonialsPanel">🗣️ Testimonials</button>
+    </div>
+
+    <!-- BLOGS PANEL -->
+    <div class="panel active" id="blogsPanel">
+      <h4 id="blogFormTitle">Add New Blog</h4>
+      <form class="inline-form" id="blogForm">
+        <input type="hidden" id="blogId">
+        <input type="text" id="blogTitle" placeholder="Blog Title" required>
+        <input type="text" id="blogSlug" placeholder="URL Slug (e.g. organic-farming-tips)" required>
+        <input type="text" id="blogCategory" placeholder="Category (e.g. Organic Farming)">
+        <input type="text" id="blogImage" placeholder="Image URL (e.g. images/h2news1.jpg)">
+        <input type="text" id="blogExcerpt" placeholder="Short excerpt (1 line)">
+        <textarea id="blogContent" placeholder="Full blog content" required></textarea>
+        <label><input type="checkbox" id="blogPublished" checked style="width:auto;"> Published</label><br><br>
+        <button type="submit">Save Blog</button>
+        <button type="button" onclick="resetBlogForm()" style="background:#999; margin-left:8px;">Cancel Edit</button>
+      </form>
+      <hr>
+      <table>
+        <thead><tr><th>Title</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="blogsTableBody"></tbody>
+      </table>
+      <p class="empty-note" id="blogsEmpty" style="display:none;">Koi blog nahi hai abhi. Upar form se add karo.</p>
+    </div>
+
+    <!-- MESSAGES PANEL -->
+    <div class="panel" id="messagesPanel">
+      <h4>Contact Messages</h4>
+      <table>
+        <thead><tr><th>Name</th><th>Email / Phone</th><th>Message</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="messagesTableBody"></tbody>
+      </table>
+      <p class="empty-note" id="messagesEmpty" style="display:none;">Koi message abhi tak nahi aaya.</p>
+    </div>
+
+    <!-- TESTIMONIALS PANEL -->
+    <div class="panel" id="testimonialsPanel">
+      <h4>Farmer Testimonials</h4>
+      <table>
+        <thead><tr><th>Farmer</th><th>Location</th><th>Message</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="testimonialsTableBody"></tbody>
+      </table>
+      <p class="empty-note" id="testimonialsEmpty" style="display:none;">Koi testimonial submit nahi hua abhi.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script>
+    // ---------- AUTH GUARD ----------
+    (async () => {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (!session) window.location.href = "login.html";
+    })();
+
+    function logout() {
+      supabaseClient.auth.signOut().then(() => window.location.href = "login.html");
+    }
+
+    // ---------- TAB SWITCHING ----------
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // ---------- BLOGS ----------
+    async function loadBlogs() {
+      const { data, error } = await supabaseClient.from('blogs').select('*').order('created_at', { ascending: false });
+      const tbody = document.getElementById('blogsTableBody');
+      const empty = document.getElementById('blogsEmpty');
+      tbody.innerHTML = '';
+      if (error) { console.error(error); return; }
+      if (!data || data.length === 0) { empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      data.forEach(blog => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${blog.title}</td>
+            <td>${blog.category || '-'}</td>
+            <td>${blog.published ? '✅ Published' : '⏸ Draft'}</td>
+            <td>
+              <button class="btn-sm btn-edit" onclick='editBlog(${JSON.stringify(blog).replace(/'/g, "&apos;")})'>Edit</button>
+              <button class="btn-sm btn-delete" onclick="deleteBlog('${blog.id}')">Delete</button>
+            </td>
+          </tr>`;
+      });
+    }
+
+    function editBlog(blog) {
+      document.getElementById('blogFormTitle').textContent = 'Edit Blog';
+      document.getElementById('blogId').value = blog.id;
+      document.getElementById('blogTitle').value = blog.title;
+      document.getElementById('blogSlug').value = blog.slug;
+      document.getElementById('blogCategory').value = blog.category || '';
+      document.getElementById('blogImage').value = blog.image_url || '';
+      document.getElementById('blogExcerpt').value = blog.excerpt || '';
+      document.getElementById('blogContent').value = blog.content;
+      document.getElementById('blogPublished').checked = blog.published;
+      window.scrollTo(0, 0);
+    }
+
+    function resetBlogForm() {
+      document.getElementById('blogFormTitle').textContent = 'Add New Blog';
+      document.getElementById('blogForm').reset();
+      document.getElementById('blogId').value = '';
+      document.getElementById('blogPublished').checked = true;
+    }
+
+    document.getElementById('blogForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('blogId').value;
+      const payload = {
+        title: document.getElementById('blogTitle').value,
+        slug: document.getElementById('blogSlug').value,
+        category: document.getElementById('blogCategory').value,
+        image_url: document.getElementById('blogImage').value,
+        excerpt: document.getElementById('blogExcerpt').value,
+        content: document.getElementById('blogContent').value,
+        published: document.getElementById('blogPublished').checked
+      };
+      let error;
+      if (id) {
+        ({ error } = await supabaseClient.from('blogs').update(payload).eq('id', id));
+      } else {
+        ({ error } = await supabaseClient.from('blogs').insert(payload));
+      }
+      if (error) { alert('Error: ' + error.message); return; }
+      resetBlogForm();
+      loadBlogs();
+    });
+
+    async function deleteBlog(id) {
+      if (!confirm('Ye blog delete karna hai?')) return;
+      const { error } = await supabaseClient.from('blogs').delete().eq('id', id);
+      if (error) { alert('Error: ' + error.message); return; }
+      loadBlogs();
+    }
+
+    // ---------- MESSAGES ----------
+    async function loadMessages() {
+      const { data, error } = await supabaseClient.from('messages').select('*').order('created_at', { ascending: false });
+      const tbody = document.getElementById('messagesTableBody');
+      const empty = document.getElementById('messagesEmpty');
+      tbody.innerHTML = '';
+      if (error) { console.error(error); return; }
+      if (!data || data.length === 0) { empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      data.forEach(msg => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${msg.name}</td>
+            <td>${msg.email}${msg.phone ? '<br>' + msg.phone : ''}</td>
+            <td>${msg.message}</td>
+            <td>${msg.is_read ? 'Read' : '<span class="badge-unread">New</span>'}</td>
+            <td>
+              ${!msg.is_read ? `<button class="btn-sm btn-approve" onclick="markRead('${msg.id}')">Mark Read</button>` : ''}
+              <button class="btn-sm btn-delete" onclick="deleteMessage('${msg.id}')">Delete</button>
+            </td>
+          </tr>`;
+      });
+    }
+
+    async function markRead(id) {
+      await supabaseClient.from('messages').update({ is_read: true }).eq('id', id);
+      loadMessages();
+    }
+
+    async function deleteMessage(id) {
+      if (!confirm('Ye message delete karna hai?')) return;
+      await supabaseClient.from('messages').delete().eq('id', id);
+      loadMessages();
+    }
+
+    // ---------- TESTIMONIALS ----------
+    async function loadTestimonials() {
+      const { data, error } = await supabaseClient.from('testimonials').select('*').order('created_at', { ascending: false });
+      const tbody = document.getElementById('testimonialsTableBody');
+      const empty = document.getElementById('testimonialsEmpty');
+      tbody.innerHTML = '';
+      if (error) { console.error(error); return; }
+      if (!data || data.length === 0) { empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      data.forEach(t => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${t.farmer_name}</td>
+            <td>${t.location || '-'}</td>
+            <td>${t.message}</td>
+            <td>${t.approved ? '✅ Approved' : '<span class="badge-pending">Pending</span>'}</td>
+            <td>
+              ${!t.approved ? `<button class="btn-sm btn-approve" onclick="approveTestimonial('${t.id}')">Approve</button>` : ''}
+              <button class="btn-sm btn-delete" onclick="deleteTestimonial('${t.id}')">Delete</button>
+            </td>
+          </tr>`;
+      });
+    }
+
+    async function approveTestimonial(id) {
+      await supabaseClient.from('testimonials').update({ approved: true }).eq('id', id);
+      loadTestimonials();
+    }
+
+    async function deleteTestimonial(id) {
+      if (!confirm('Ye testimonial delete karna hai?')) return;
+      await supabaseClient.from('testimonials').delete().eq('id', id);
+      loadTestimonials();
+    }
+
+    // ---------- INITIAL LOAD ----------
+    loadBlogs();
+    loadMessages();
+    loadTestimonials();
+  </script>
+</body>
+</html>
