@@ -4,13 +4,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dairy Farming</title>
+<title>Dairy Farming - Gramin Saathi</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <style>
+*{box-sizing:border-box;}
 body{
     font-family: Arial;
+    margin:0;
+}
+.navbar{
+    width:100%;
+    background:#14532d;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+.logo span{
+    color:#4ade80;
+}
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    transition:0.3s;
+}
+.nav-links a:hover{
+    color:#86efac;
+}
+@media(max-width:900px){
+    .navbar{flex-direction:column;gap:15px;}
+    .nav-links{flex-wrap:wrap;justify-content:center;gap:15px;}
 }
 .banner{
     background:url('images/current-pro6.jpg') center/cover;
@@ -29,10 +67,30 @@ body{
     margin-bottom:20px;
     border-radius:10px;
 }
+.site-footer{
+    background:#14532d;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:20px;
+}
 </style>
 </head>
 
 <body>
+
+<nav class="navbar">
+<div class="logo">Gramin <span>Saathi</span></div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="dairy-farming.html">Dairy Farming</a>
+<a href="organic-farming.html">Organic Farming</a>
+<a href="modern-equipment.html">Modern Equipment</a>
+<a href="government-schemes.html">Schemes</a>
+<a href="contact-one.html">Contact</a>
+</div>
+</nav>
 
 <div class="banner">
 <div>
@@ -69,6 +127,10 @@ Provide clean water, proper food and regular health checkups for animals.
 
 </div>
 </section>
+
+<footer class="site-footer">
+<p>© 2026 Gramin Saathi. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
