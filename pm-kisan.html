@@ -1,14 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>PM Kisan Yojana</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PM Kisan Yojana - Gramin Saathi</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f5f7f2;
+}
+.navbar{
+    width:100%;
+    background:#14532d;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+.logo span{
+    color:#4ade80;
+}
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    transition:0.3s;
+}
+.nav-links a:hover{
+    color:#86efac;
+}
+@media(max-width:900px){
+    .navbar{flex-direction:column;gap:15px;}
+    .nav-links{flex-wrap:wrap;justify-content:center;gap:15px;}
+}
+.blogs{
+    max-width:800px;
+    margin:0 auto;
+    padding:60px 20px;
+}
+.blogs h1{
+    color:#14532d;
+}
+.blogs h2{
+    color:#14532d;
+    margin-top:30px;
+}
+.site-footer{
+    background:#14532d;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:20px;
+}
+</style>
 </head>
 <body>
 
-<header>
-  <div class="logo">🌾 AgriGrow</div>
-</header>
+<nav class="navbar">
+<div class="logo">Gramin <span>Saathi</span></div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="government-schemes.html">Schemes</a>
+<a href="success-story.html">Success Story</a>
+<a href="contact-one.html">Contact</a>
+</div>
+</nav>
 
 <section class="blogs">
 
@@ -34,6 +108,10 @@
   </p>
 
 </section>
+
+<footer class="site-footer">
+<p>© 2026 Gramin Saathi. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
