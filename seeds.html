@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Seed Supply</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seed Supply - Gramin Saathi</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -11,6 +12,52 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: #f5f7f6;
+}
+
+/* NAVBAR */
+.navbar{
+    width:100%;
+    background:#14532d;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-sizing:border-box;
+}
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+.logo span{
+    color:#4ade80;
+}
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    transition:0.3s;
+}
+.nav-links a:hover{
+    color:#86efac;
+}
+@media(max-width:900px){
+    .navbar{flex-direction:column;gap:15px;}
+    .nav-links{flex-wrap:wrap;justify-content:center;gap:15px;}
+}
+.site-footer{
+    background:#14532d;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:20px;
 }
 
 /* HERO */
@@ -85,6 +132,17 @@ body {
 
 <body>
 
+<nav class="navbar">
+<div class="logo">Gramin <span>Saathi</span></div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="agri-business.html">Agri Business</a>
+<a href="organic-farming.html">Organic Farming</a>
+<a href="contact-one.html">Contact</a>
+</div>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
   <h1>Seed Supply</h1>
@@ -135,6 +193,10 @@ body {
   <a href="agri-business.html" class="back">⬅ Back to Agri Business</a>
 
 </div>
+
+<footer class="site-footer">
+<p>© 2026 Gramin Saathi. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
