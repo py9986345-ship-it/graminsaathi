@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Dashboard - Gramin Saathi</title>
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <style>
@@ -106,6 +107,14 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="../js/supabase-config.js"></script>
   <script>
+    // HTML escape: database ka text page me safely dikhane ke liye (XSS se bachav)
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+      });
+    }
+    const blogsCache = {};
+
     // ---------- AUTH GUARD ----------
     (async () => {
       const { data: { session } } = await supabaseClient.auth.getSession();
@@ -136,20 +145,23 @@
       if (!data || data.length === 0) { empty.style.display = 'block'; return; }
       empty.style.display = 'none';
       data.forEach(blog => {
+        blogsCache[blog.id] = blog;
         tbody.innerHTML += `
           <tr>
-            <td>${blog.title}</td>
-            <td>${blog.category || '-'}</td>
+            <td>${esc(blog.title)}</td>
+            <td>${esc(blog.category || '-')}</td>
             <td>${blog.published ? '✅ Published' : '⏸ Draft'}</td>
             <td>
-              <button class="btn-sm btn-edit" onclick='editBlog(${JSON.stringify(blog).replace(/'/g, "&apos;")})'>Edit</button>
-              <button class="btn-sm btn-delete" onclick="deleteBlog('${blog.id}')">Delete</button>
+              <button class="btn-sm btn-edit" onclick="editBlog('${esc(blog.id)}')">Edit</button>
+              <button class="btn-sm btn-delete" onclick="deleteBlog('${esc(blog.id)}')">Delete</button>
             </td>
           </tr>`;
       });
     }
 
-    function editBlog(blog) {
+    function editBlog(id) {
+      const blog = blogsCache[id];
+      if (!blog) return;
       document.getElementById('blogFormTitle').textContent = 'Edit Blog';
       document.getElementById('blogId').value = blog.id;
       document.getElementById('blogTitle').value = blog.title;
@@ -211,13 +223,13 @@
       data.forEach(msg => {
         tbody.innerHTML += `
           <tr>
-            <td>${msg.name}</td>
-            <td>${msg.email}${msg.phone ? '<br>' + msg.phone : ''}</td>
-            <td>${msg.message}</td>
+            <td>${esc(msg.name)}</td>
+            <td>${esc(msg.email)}${msg.phone ? '<br>' + esc(msg.phone) : ''}</td>
+            <td>${esc(msg.subject ? '[' + msg.subject + '] ' : '')}${esc(msg.message)}</td>
             <td>${msg.is_read ? 'Read' : '<span class="badge-unread">New</span>'}</td>
             <td>
-              ${!msg.is_read ? `<button class="btn-sm btn-approve" onclick="markRead('${msg.id}')">Mark Read</button>` : ''}
-              <button class="btn-sm btn-delete" onclick="deleteMessage('${msg.id}')">Delete</button>
+              ${!msg.is_read ? `<button class="btn-sm btn-approve" onclick="markRead('${esc(msg.id)}')">Mark Read</button>` : ''}
+              <button class="btn-sm btn-delete" onclick="deleteMessage('${esc(msg.id)}')">Delete</button>
             </td>
           </tr>`;
       });
@@ -246,13 +258,13 @@
       data.forEach(t => {
         tbody.innerHTML += `
           <tr>
-            <td>${t.farmer_name}</td>
-            <td>${t.location || '-'}</td>
-            <td>${t.message}</td>
+            <td>${esc(t.farmer_name)}</td>
+            <td>${esc(t.location || '-')}</td>
+            <td>${esc(t.message)}</td>
             <td>${t.approved ? '✅ Approved' : '<span class="badge-pending">Pending</span>'}</td>
             <td>
-              ${!t.approved ? `<button class="btn-sm btn-approve" onclick="approveTestimonial('${t.id}')">Approve</button>` : ''}
-              <button class="btn-sm btn-delete" onclick="deleteTestimonial('${t.id}')">Delete</button>
+              ${!t.approved ? `<button class="btn-sm btn-approve" onclick="approveTestimonial('${esc(t.id)}')">Approve</button>` : ''}
+              <button class="btn-sm btn-delete" onclick="deleteTestimonial('${esc(t.id)}')">Delete</button>
             </td>
           </tr>`;
       });
