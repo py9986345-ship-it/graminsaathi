@@ -8,8 +8,8 @@
 //    (NEVER use the "service_role" key here — that one is secret)
 // ============================================
 
-const SUPABASE_URL = "https://ovphdbiwrvqktsswxgzo.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92cGhkYml3cnZxa3Rzc3d4Z3pvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2NjQ3MDcsImV4cCI6MjEwNDI0MDcwN30.on25DURmtBldQ30amWDgkz-QGAvaEABRhWVHGaMw76U";
+const SUPABASE_URL = "https://ypckoohoaehnlcuzsmqg.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_xQ5iGjcsGebZbNEGNiSwHQ_8WgcEScx";
 
 // Creates a single shared Supabase client for use across all pages
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
