@@ -7012,3 +7012,8 @@ section.wf100.p80.fcampaigns {
   #home-slider .slider-caption.h2slider a{padding:8px 14px;font-size:13px;margin-bottom:6px;}
   #home-slider .item:after{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.38);z-index:1;pointer-events:none;}
 }
+
+/* Home slider: text padhne ke liye left side halka dark gradient */
+@media (min-width:768px){
+  #home-slider .item:after{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.2) 55%,rgba(0,0,0,0) 80%);z-index:1;pointer-events:none;}
+}
