@@ -2,6 +2,8 @@
 <html lang="en">
    
 <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       
       <meta name="keywords" content="farming, organic farming, agriculture, dairy farming, government schemes, Indian farmers">
 
@@ -26,38 +28,41 @@
          <!--Header Start-->
          <header class="header-style-2">
             <nav class="navbar navbar-expand-lg">
-               <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+               <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Gramin Saathi logo"></a>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fas fa-bars"></i> </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
-                     <li class="nav-item"> <a class="nav-link" href="index.html">Home</a> </li>
+                     <li class="nav-item"> <a class="nav-link active" href="index.html">Home</a> </li>
                      <li class="nav-item"> <a class="nav-link" href="about.html">About</a> </li>
-                     <li class="nav-item"> <a class="nav-link" href="blog.html">Blogs</a> </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+                        <div class="dropdown-menu" aria-labelledby="servicesMenu">
+                           <a class="dropdown-item" href="organic-farming.html">Organic Farming</a>
+                           <a class="dropdown-item" href="dairy-farming.html">Dairy Farming</a>
+                           <a class="dropdown-item" href="agri-business.html">Agri Business</a>
+                           <a class="dropdown-item" href="modern-equipment.html">Modern Equipment</a>
+                           <a class="dropdown-item" href="seeds.html">Seeds</a>
+                        </div>
+                     </li>
                      <li class="nav-item"> <a class="nav-link" href="government-schemes.html">Schemes</a> </li>
+                     <li class="nav-item"> <a class="nav-link" href="success-story.html">Success Stories</a> </li>
+                     <li class="nav-item"> <a class="nav-link" href="blog.html">Blogs</a> </li>
                      <li class="nav-item"> <a class="nav-link" href="testimonials.html">Testimonials</a> </li>
                      <li class="nav-item"> <a class="nav-link" href="contact-one.html">Contact</a> </li>
                   </ul>
                   <ul class="topnav-right">
                      <li> <a class="mdonate" href="contact-one.html"><span>Farmer Support</span></a> </li>
-                     <li> <a class="search-icon" href="#search"> <i class="fas fa-search"></i> </a> </li>
                   </ul>
                </div>
             </nav>
          </header>
-         <div id="search">
-            <button type="button" class="close">×</button>
-            <form class="search-overlay-form">
-               <input type="search" value="" placeholder="type keyword(s) here" />
-               <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-            </form>
-         </div>
          <!--Header End--> 
          <!--Slider Start-->
          <section id="home-slider" class="owl-carousel owl-theme wf100">
             <div class="item">
                <div class="slider-caption h2slider">
                   <div class="container">
-                     <strong>Gramin Saathi<span> is the Best</span></strong>
+                     <strong>Gramin Saathi<span> Your Farming Partner</span></strong>
                      <h1>Smart Farming Solutions</h1>
                      <p>Helping Indian Farmers With Modern Agriculture</p>
                      <a href="about.html" class="active">Explore Services</a>
@@ -65,30 +70,30 @@
                      
                   </div>
                </div>
-               <img src="images/slide1.jpg" alt=""> 
+               <img src="images/slide1.jpg" alt="Smart Farming Solutions"> 
             </div>
             <div class="item">
                <div class="slider-caption h2slider">
                   <div class="container">
-                     <strong><span>Please</span> Smart Farming & Organic Solutions & </strong>
+                     <strong><span>Smart</span> Farming & Organic Solutions</strong>
                      <h1>Modern Agriculture For Better Future</h1>
                      <p>Organic farming, irrigation & agri-business guidance</p>
                      <a href="about.html">Find Out More</a>
 <a href="contact-one.html">Join us Now</a>
                   </div>
                </div>
-               <img src="images/slide2.jpg" alt=""> 
+               <img src="images/slide2.jpg" alt="Modern Agriculture For Better Future"> 
             </div>
             <div class="item">
                <div class="slider-caption h2slider">
                   <div class="container">
-                     <strong>Save <span> & don’t waste our life</span> partner</strong>
+                     <strong>Save <span>Water,</span> Save Farms</strong>
                      <h1>Save Water In Farming</h1>
                      <p>Smart Farming Solutions for Modern Indian Agriculture</p>
                      <a href="about.html" class="active">Find Out More</a> <a href="contact-one.html">Join us Now</a> 
                   </div>
                </div>
-               <img src="images/slide3.jpg" alt=""> 
+               <img src="images/slide3.jpg" alt="Save Water In Farming"> 
             </div>
          </section>
          <!--Slider End--> 
@@ -100,16 +105,16 @@
    <!-- Organic Farming -->
    <li onclick="window.location.href='organic-farming.html'">
       <div class="sinfo">
-         <img src="images/sericon1.png" alt="">
+         <i class="fas fa-seedling sicon" aria-hidden="true"></i>
          <h6>Organic Farming</h6>
-         <p>Waste Management</p>
+         <p>Chemical-Free Farming</p>
       </div>
    </li>
 
    <!-- Agri Business -->
    <li onclick="window.location.href='agri-business.html'">
       <div class="sinfo">
-         <img src="images/sericon2.png" alt="">
+         <i class="fas fa-chart-line sicon" aria-hidden="true"></i>
          <h6>Agri Business</h6>
          <p>Farming Business Ideas</p>
       </div>
@@ -118,16 +123,16 @@
    <!-- Dairy Farming -->
    <li onclick="window.location.href='dairy-farming.html'">
       <div class="sinfo">
-         <img src="images/sericon3.png" alt="">
+         <i class="fas fa-tint sicon" aria-hidden="true"></i>
          <h6>Dairy Farming</h6>
-         <p>Save Water Resources</p>
+         <p>Milk & Dairy Business</p>
       </div>
    </li>
 
    <!-- Government Schemes -->
    <li onclick="window.location.href='government-schemes.html'">
       <div class="sinfo">
-         <img src="images/sericon4.png" alt="">
+         <i class="fas fa-landmark sicon" aria-hidden="true"></i>
          <h6>Government Schemes</h6>
          <p>Farmer Support Schemes</p>
       </div>
@@ -136,7 +141,7 @@
    <!-- Success Story -->
    <li onclick="window.location.href='success-story.html'">
       <div class="sinfo">
-         <img src="images/sericon5.png" alt="">
+         <i class="fas fa-award sicon" aria-hidden="true"></i>
          <h6>Success Story</h6>
          <p>Farmer Growth Journey</p>
       </div>
@@ -145,7 +150,7 @@
    <!-- Modern Equipment -->
    <li onclick="window.location.href='modern-equipment.html'">
       <div class="sinfo">
-         <img src="images/sericon4.png" alt="">
+         <i class="fas fa-tractor sicon" aria-hidden="true"></i>
          <h6>Modern Equipment</h6>
          <p>Advanced Farming Machines</p>
       </div>
@@ -160,7 +165,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-5">
-                     <div class="video-img"> <a href="http://vimeo.com/43338103&amp;width=700" data-rel="prettyPhoto" title="Vimeo video"><i class="fas fa-play"></i></a> <img src="images/h2about.jpg" alt=""> </div>
+                     <div class="video-img"> <img src="images/h2about.jpg" alt="About Gramin Saathi"> </div>
                   </div>
                   <div class="col-md-7">
                      <div class="h2-about-txt">
@@ -240,12 +245,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro1.jpg" alt="">
+                                    <img src="images/current-pro1.jpg" alt="Organic Crop Farming">
                                     <h5>Organic Crop Farming</h5>
                                     <div class="pro-hover">
                                        <h6>Organic Crop Farming</h6>
                                        <p>Chemical-free farming methods that improve soil health and give farmers a better market price.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="organic-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -253,12 +258,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro2.jpg" alt="">
+                                    <img src="images/current-pro2.jpg" alt="Smart Irrigation System">
                                     <h5>Smart Irrigation System</h5>
                                     <div class="pro-hover">
                                        <h6>Smart Irrigation System</h6>
                                        <p>Drip and sprinkler irrigation techniques that save water and increase crop yield.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="blog-details.html?slug=smart-irrigation-techniques-saving-water">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -266,12 +271,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro3.jpg" alt="">
+                                    <img src="images/current-pro3.jpg" alt="Modern Farming Equipment">
                                     <h5>Modern Farming Equipment</h5>
                                     <div class="pro-hover">
                                        <h6>Modern Farming Equipment</h6>
                                        <p>Affordable tools and machines that reduce labour and speed up farm work.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="modern-equipment.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -279,12 +284,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro4.jpg" alt="">
+                                    <img src="images/current-pro4.jpg" alt="Vermicompost & Bio-Fertilizers">
                                     <h5>Vermicompost & Bio-Fertilizers</h5>
                                     <div class="pro-hover">
                                        <h6>Vermicompost & Bio-Fertilizers</h6>
                                        <p>Prepare natural compost at home to cut fertilizer costs and boost soil fertility.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="organic-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -292,12 +297,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro5.jpg" alt="">
+                                    <img src="images/current-pro5.jpg" alt="Natural Pest Control">
                                     <h5>Natural Pest Control</h5>
                                     <div class="pro-hover">
                                        <h6>Natural Pest Control</h6>
                                        <p>Eco-friendly ways to protect crops from pests without harmful chemicals.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="organic-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -305,12 +310,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro6.jpg" alt="">
+                                    <img src="images/current-pro6.jpg" alt="Crop Rotation Planning">
                                     <h5>Crop Rotation Planning</h5>
                                     <div class="pro-hover">
                                        <h6>Crop Rotation Planning</h6>
                                        <p>Choose the right crop sequence to keep your land productive season after season.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="organic-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -318,12 +323,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro7.jpg" alt="">
+                                    <img src="images/current-pro7.jpg" alt="Organic Certification Guidance">
                                     <h5>Organic Certification Guidance</h5>
                                     <div class="pro-hover">
                                        <h6>Organic Certification Guidance</h6>
                                        <p>Step-by-step help to get your farm certified as an organic producer.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="organic-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -331,12 +336,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro8.jpg" alt="">
+                                    <img src="images/current-pro8.jpg" alt="Kitchen Garden & Home Farming">
                                     <h5>Kitchen Garden & Home Farming</h5>
                                     <div class="pro-hover">
                                        <h6>Kitchen Garden & Home Farming</h6>
                                        <p>Grow your own vegetables using simple organic practices, even on small land.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="organic-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -350,12 +355,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro5.jpg" alt="">
+                                    <img src="images/current-pro5.jpg" alt="Dairy Farming Basics">
                                     <h5>Dairy Farming Basics</h5>
                                     <div class="pro-hover">
                                        <h6>Dairy Farming Basics</h6>
                                        <p>Helping farmers with modern agriculture techniques, dairy management and government support schemes.</p>
-                                       <a href="#">Explore More</a>
+                                       <a href="dairy-farming.html">Explore More</a>
                                     </div>
                                  </div>
                               </div>
@@ -363,12 +368,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro6.jpg" alt="">
+                                    <img src="images/current-pro6.jpg" alt="Modern Dairy Equipment">
                                     <h5>Modern Dairy Equipment</h5>
                                     <div class="pro-hover">
                                        <h6>Modern Dairy Equipment</h6>
                                        <p>Milking machines and chillers that improve milk quality and reduce daily labour.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="dairy-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -376,12 +381,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro7.jpg" alt="">
+                                    <img src="images/current-pro7.jpg" alt="Cattle Feed & Nutrition">
                                     <h5>Cattle Feed & Nutrition</h5>
                                     <div class="pro-hover">
                                        <h6>Cattle Feed & Nutrition</h6>
                                        <p>Balanced feed plans that keep your cattle healthy and improve milk production.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="dairy-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -389,12 +394,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro8.jpg" alt="">
+                                    <img src="images/current-pro8.jpg" alt="Milk Processing & Storage">
                                     <h5>Milk Processing & Storage</h5>
                                     <div class="pro-hover">
                                        <h6>Milk Processing & Storage</h6>
                                        <p>Simple techniques to store and process milk safely before it reaches the market.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="dairy-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -402,12 +407,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro1.jpg" alt="">
+                                    <img src="images/current-pro1.jpg" alt="Fodder Cultivation for Cattle">
                                     <h5>Fodder Cultivation for Cattle</h5>
                                     <div class="pro-hover">
                                        <h6>Fodder Cultivation for Cattle</h6>
                                        <p>Grow your own fodder crops to cut feed costs and ensure a steady supply.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="dairy-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -415,12 +420,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro2.jpg" alt="">
+                                    <img src="images/current-pro2.jpg" alt="Dairy Cooperative Registration">
                                     <h5>Dairy Cooperative Registration</h5>
                                     <div class="pro-hover">
                                        <h6>Dairy Cooperative Registration</h6>
                                        <p>How to join or start a local dairy cooperative for better milk prices.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="dairy-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -428,12 +433,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro3.jpg" alt="">
+                                    <img src="images/current-pro3.jpg" alt="Veterinary Care & Animal Health">
                                     <h5>Veterinary Care & Animal Health</h5>
                                     <div class="pro-hover">
                                        <h6>Veterinary Care & Animal Health</h6>
                                        <p>Regular check-ups and vaccination guidance to keep your cattle disease-free.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="dairy-farming.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -441,12 +446,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro4.jpg" alt="">
+                                    <img src="images/current-pro4.jpg" alt="Dairy Subsidy Schemes">
                                     <h5>Dairy Subsidy Schemes</h5>
                                     <div class="pro-hover">
                                        <h6>Dairy Subsidy Schemes</h6>
                                        <p>Government subsidies available for setting up or expanding your dairy unit.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="government-schemes.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -460,12 +465,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro7.jpg" alt="">
+                                    <img src="images/current-pro7.jpg" alt="PM-KUSUM Solar Pump Subsidy">
                                     <h5>PM-KUSUM Solar Pump Subsidy</h5>
                                     <div class="pro-hover">
                                        <h6>PM-KUSUM Solar Pump Subsidy</h6>
                                        <p>Get subsidy on solar-powered irrigation pumps under the PM-KUSUM scheme.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="government-schemes.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -473,12 +478,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro8.jpg" alt="">
+                                    <img src="images/current-pro8.jpg" alt="PM Kisan Samman Nidhi">
                                     <h5>PM Kisan Samman Nidhi</h5>
                                     <div class="pro-hover">
                                        <h6>PM Kisan Samman Nidhi</h6>
                                        <p>Direct income support of Rs. 6,000 per year for eligible farmer families.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="pm-kisan.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -486,12 +491,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro5.jpg" alt="">
+                                    <img src="images/current-pro5.jpg" alt="Soil Health Card Scheme">
                                     <h5>Soil Health Card Scheme</h5>
                                     <div class="pro-hover">
                                        <h6>Soil Health Card Scheme</h6>
                                        <p>Free soil testing to help you choose the right fertilizer for better yield.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="government-schemes.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -499,12 +504,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro6.jpg" alt="">
+                                    <img src="images/current-pro6.jpg" alt="Kisan Credit Card (KCC)">
                                     <h5>Kisan Credit Card (KCC)</h5>
                                     <div class="pro-hover">
                                        <h6>Kisan Credit Card (KCC)</h6>
                                        <p>Low-interest credit for seeds, fertilizers and other farming needs.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="blog-details.html?slug=kisan-credit-card-guide">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -512,12 +517,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro3.jpg" alt="">
+                                    <img src="images/current-pro3.jpg" alt="Pradhan Mantri Fasal Bima Yojana">
                                     <h5>Pradhan Mantri Fasal Bima Yojana</h5>
                                     <div class="pro-hover">
                                        <h6>Pradhan Mantri Fasal Bima Yojana</h6>
                                        <p>Crop insurance that protects farmers against losses from natural calamities.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="government-schemes.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -525,12 +530,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro4.jpg" alt="">
+                                    <img src="images/current-pro4.jpg" alt="Farm Mechanization Subsidy">
                                     <h5>Farm Mechanization Subsidy</h5>
                                     <div class="pro-hover">
                                        <h6>Farm Mechanization Subsidy</h6>
                                        <p>Financial support for buying tractors and modern farm equipment.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="modern-equipment.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -538,12 +543,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro1.jpg" alt="">
+                                    <img src="images/current-pro1.jpg" alt="e-NAM Digital Mandi Registration">
                                     <h5>e-NAM Digital Mandi Registration</h5>
                                     <div class="pro-hover">
                                        <h6>e-NAM Digital Mandi Registration</h6>
                                        <p>Sell your produce online across India through the e-NAM platform.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="government-schemes.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -551,12 +556,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro2.jpg" alt="">
+                                    <img src="images/current-pro2.jpg" alt="Agricultural Infrastructure Fund">
                                     <h5>Agricultural Infrastructure Fund</h5>
                                     <div class="pro-hover">
                                        <h6>Agricultural Infrastructure Fund</h6>
                                        <p>Loans for building warehouses, cold storage and other farm infrastructure.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="government-schemes.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -570,12 +575,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro7.jpg" alt="">
+                                    <img src="images/current-pro7.jpg" alt="From 2 Acres to a Thriving Organic Farm">
                                     <h5>From 2 Acres to a Thriving Organic Farm</h5>
                                     <div class="pro-hover">
                                        <h6>From 2 Acres to a Thriving Organic Farm</h6>
                                        <p>How a small farmer in Punjab switched to organic methods and tripled his income.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="success-story.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -583,12 +588,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro8.jpg" alt="">
+                                    <img src="images/current-pro8.jpg" alt="Smart Irrigation Doubled His Yield">
                                     <h5>Smart Irrigation Doubled His Yield</h5>
                                     <div class="pro-hover">
                                        <h6>Smart Irrigation Doubled His Yield</h6>
                                        <p>A Maharashtra farmer's journey using drip irrigation to save water and boost output.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="success-story.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -596,12 +601,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro3.jpg" alt="">
+                                    <img src="images/current-pro3.jpg" alt="A Dairy Entrepreneur's Journey">
                                     <h5>A Dairy Entrepreneur's Journey</h5>
                                     <div class="pro-hover">
                                        <h6>A Dairy Entrepreneur's Journey</h6>
                                        <p>From two cows to a full dairy business supplying milk across the district.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="success-story.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -609,12 +614,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro4.jpg" alt="">
+                                    <img src="images/current-pro4.jpg" alt="Women Farmers Leading a Self-Help Group">
                                     <h5>Women Farmers Leading a Self-Help Group</h5>
                                     <div class="pro-hover">
                                        <h6>Women Farmers Leading a Self-Help Group</h6>
                                        <p>How a women's collective in Rajasthan built a profitable organic vegetable business.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="success-story.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -622,12 +627,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro1.jpg" alt="">
+                                    <img src="images/current-pro1.jpg" alt="Turning Farm Waste into Profit">
                                     <h5>Turning Farm Waste into Profit</h5>
                                     <div class="pro-hover">
                                        <h6>Turning Farm Waste into Profit</h6>
                                        <p>A Bihar farmer's story of converting crop residue into compost and extra income.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="success-story.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -635,12 +640,12 @@
                               <!--Pro Box-->
                               <div class="item">
                                  <div class="pro-box">
-                                    <img src="images/current-pro2.jpg" alt="">
+                                    <img src="images/current-pro2.jpg" alt="Youth Returns to Village for Agri-Business">
                                     <h5>Youth Returns to Village for Agri-Business</h5>
                                     <div class="pro-hover">
                                        <h6>Youth Returns to Village for Agri-Business</h6>
                                        <p>A young graduate's decision to build a modern agri-business back in his home village.</p>
-                                       <a href="#">Read More</a>
+                                       <a href="success-story.html">Read More</a>
                                     </div>
                                  </div>
                               </div>
@@ -664,41 +669,41 @@
                         <h2>News & Articles</h2>
                      </div>
                   </div>
-                  <div class="col-md-6"> <a href="#" class="view-more">View More News</a> </div>
+                  <div class="col-md-6"> <a href="blog.html" class="view-more">View More News</a> </div>
                </div>
                <div class="row">
                   <div class="col-md-6">
                      <div class="blog-post-large">
-                        <div class="post-thumb"> <a href="#"><i class="fas fa-link"></i></a> <img src="images/h2news1.jpg" alt=""></div>
+                        <div class="post-thumb"> <a href="blog-details.html?slug=top-organic-farming-tips"><i class="fas fa-link"></i></a> <img src="images/h2news1.jpg" alt="Top Organic Farming Tips For Indian Farmers"></div>
                         <div class="post-txt">
                            <ul class="post-meta">
                               <li><i class="fas fa-calendar-alt"></i> 29 September, 2018</li>
                               <li><i class="fas fa-comments"></i> 134 Comments</li>
                            </ul>
-                           <h5><a href="#">Top Organic Farming Tips For Indian Farmers</a></h5>
+                           <h5><a href="blog-details.html?slug=top-organic-farming-tips">Top Organic Farming Tips For Indian Farmers</a></h5>
                         </div>
                      </div>
                   </div>
                   <div class="col-md-6">
                      <!--Blog Small Post Start-->
                      <div class="blog-small-post">
-                        <div class="post-thumb"> <a href="#"><i class="fas fa-link"></i></a> <img src="images/h2news2.jpg" alt=""> </div>
+                        <div class="post-thumb"> <a href="blog-details.html?slug=smart-irrigation-techniques-saving-water"><i class="fas fa-link"></i></a> <img src="images/h2news2.jpg" alt="Smart Irrigation Techniques Saving Water"> </div>
                         <div class="post-txt">
                            <span class="pdate"> <i class="fas fa-calendar-alt"></i> 29 September, 2018</span>
-                           <h5><a href="#">Best Crops For Summer Season</a></h5>
+                           <h5><a href="blog-details.html?slug=smart-irrigation-techniques-saving-water">Smart Irrigation Techniques Saving Water</a></h5>
                            <p>According to a survey the perceived higher cost of environmentally.</p>
-                           <a href="#" class="rm">Read More</a> 
+                           <a href="blog-details.html?slug=smart-irrigation-techniques-saving-water" class="rm">Read More</a> 
                         </div>
                      </div>
                      <!--Blog Small Post End--> 
                      <!--Blog Small Post Start-->
                      <div class="blog-small-post">
-                        <div class="post-thumb"> <a href="#"><i class="fas fa-link"></i></a> <img src="images/h2news3.jpg" alt=""> </div>
+                        <div class="post-thumb"> <a href="blog-details.html?slug=government-schemes-every-farmer-should-know"><i class="fas fa-link"></i></a> <img src="images/h2news3.jpg" alt="Government Schemes Every Farmer Should Know"> </div>
                         <div class="post-txt">
                            <span class="pdate"> <i class="fas fa-calendar-alt"></i> 29 September, 2018</span>
-                           <h5><a href="#">Government Schemes Every Farmer Should Know</a></h5>
+                           <h5><a href="blog-details.html?slug=government-schemes-every-farmer-should-know">Government Schemes Every Farmer Should Know</a></h5>
                            <p>Majority have suffered alteration in some form by injected humour.</p>
-                           <a href="#" class="rm">Read More</a> 
+                           <a href="blog-details.html?slug=government-schemes-every-farmer-should-know" class="rm">Read More</a> 
                         </div>
                      </div>
                      <!--Blog Small Post End--> 
@@ -718,7 +723,7 @@
                crop yields, water-saving irrigation, easy access to government
                schemes, and modern techniques for every Indian farmer.
             </p>
-            <a href="#" class="cus">Join Our Farmer Community</a>
+            <a href="contact-one.html" class="cus">Join Our Farmer Community</a>
          </div>
       </div>
    </div>
@@ -727,13 +732,13 @@
          <!--InstaGram Start-->
          <div class="instagram">
             <ul>
-               <li> <a href="#"> <i class="fas fa-search"></i> </a> <img src="images/insta1.jpg" alt=""> </li>
-               <li> <a href="#"> <i class="fas fa-search"></i> </a> <img src="images/insta2.jpg" alt=""> </li>
-               <li> <a href="#"> <i class="fas fa-search"></i> </a> <img src="images/insta3.jpg" alt=""> </li>
-               <li> <a href="#"> <i class="fas fa-search"></i> </a> <img src="images/insta4.jpg" alt=""> </li>
-               <li> <a href="#"> <i class="fas fa-search"></i> </a> <img src="images/insta5.jpg" alt=""> </li>
-               <li> <a href="#"> <i class="fas fa-search"></i> </a> <img src="images/insta6.jpg" alt=""> </li>
-               <li> <a href="#"> <i class="fas fa-search"></i> </a> <img src="images/insta7.jpg" alt=""> </li>
+               <li> <a href="images/insta1.jpg" data-rel="prettyPhoto[farmgallery]" title="Gramin Saathi"> <i class="fas fa-search"></i> </a> <img src="images/insta1.jpg" alt="Farm photo"> </li>
+               <li> <a href="images/insta2.jpg" data-rel="prettyPhoto[farmgallery]" title="Gramin Saathi"> <i class="fas fa-search"></i> </a> <img src="images/insta2.jpg" alt="Farm photo"> </li>
+               <li> <a href="images/insta3.jpg" data-rel="prettyPhoto[farmgallery]" title="Gramin Saathi"> <i class="fas fa-search"></i> </a> <img src="images/insta3.jpg" alt="Farm photo"> </li>
+               <li> <a href="images/insta4.jpg" data-rel="prettyPhoto[farmgallery]" title="Gramin Saathi"> <i class="fas fa-search"></i> </a> <img src="images/insta4.jpg" alt="Farm photo"> </li>
+               <li> <a href="images/insta5.jpg" data-rel="prettyPhoto[farmgallery]" title="Gramin Saathi"> <i class="fas fa-search"></i> </a> <img src="images/insta5.jpg" alt="Farm photo"> </li>
+               <li> <a href="images/insta6.jpg" data-rel="prettyPhoto[farmgallery]" title="Gramin Saathi"> <i class="fas fa-search"></i> </a> <img src="images/insta6.jpg" alt="Farm photo"> </li>
+               <li> <a href="images/insta7.jpg" data-rel="prettyPhoto[farmgallery]" title="Gramin Saathi"> <i class="fas fa-search"></i> </a> <img src="images/insta7.jpg" alt="Farm photo"> </li>
             </ul>
          </div>
          <!--InstaGram End--> 
@@ -746,7 +751,7 @@
                         <!--Footer Widget Start-->
                         <div class="footer-widget">
                            <h4>About Gramin Saathi</h4>
-                           <p> Gramin Saathi is a modern agriculture platform helping farmers with organic farming, smart irrigation, agri-business ideas, and government schemes for sustainable farming growth. </p>
+                           <p>Gramin Saathi is dedicated to supporting farmers, rural businesses, and sustainable agriculture through awareness, modern techniques, and community support.</p>
                            <a href="about.html" class="lm">About us</a> 
                         </div>
                         <!--Footer Widget End--> 
@@ -758,10 +763,10 @@
                            <ul class="quick-links">
                               <li><a href="organic-farming.html">Organic Farming</a></li>
                               <li><a href="dairy-farming.html">Dairy Farming</a></li>
-                              <li><a href="government-schemes.html">Government Schemes</a></li>
+                              <li><a href="agri-business.html">Agri Business</a></li>
                               <li><a href="modern-equipment.html">Modern Equipment</a></li>
-                              <li><a href="agri-business.html">Agri Business Ideas</a></li>
-                              <li><a href="success-story.html">Success Stories</a></li>
+                              <li><a href="government-schemes.html">Government Schemes</a></li>
+                              <li><a href="contact-one.html">Farmer Support </a></li>
                            </ul>
                         </div>
                         <!--Footer Widget End--> 
@@ -771,32 +776,24 @@
                         <div class="footer-widget">
                            <h4>Latest Posts</h4>
                            <ul class="lastest-products">
-                              <li> <img src="images/flp1.jpg" alt=""> <strong><a href="#">Top Organic Farming Methods For Beginners</a></strong> <span class="pdate"><i>Posted:</i> 10 May, 2026</span> </li>
-                              <li> <img src="images/flp2.jpg" alt=""> <strong><a href="#">Government Schemes Helping Indian Farmers</a></strong> <span class="pdate"><i>Posted:</i> 12 May, 2026</span> </li>
-                              <li> <img src="images/flp3.jpg" alt=""> <strong><a href="#">Smart Irrigation Techniques Saving Water</a></strong> <span class="pdate"><i>Posted:</i> 14 May, 2026</span> </li>
+                              <li> <img src="images/flp1.jpg" alt="Top Organic Farming Methods For Beginners"> <strong><a href="blog-details.html?slug=top-organic-farming-tips">Top Organic Farming Methods For Beginners</a></strong> <span class="pdate"><i>Posted:</i> 10 May, 2026</span> </li>
+                              <li> <img src="images/flp2.jpg" alt="Government Schemes Helping Indian Farmers"> <strong><a href="blog-details.html?slug=government-schemes-every-farmer-should-know">Government Schemes Helping Indian Farmers</a></strong> <span class="pdate"><i>Posted:</i> 12 May, 2026</span> </li>
+                              <li> <img src="images/flp3.jpg" alt="Smart Irrigation Techniques Saving Water"> <strong><a href="blog-details.html?slug=smart-irrigation-techniques-saving-water">Smart Irrigation Techniques Saving Water</a></strong> <span class="pdate"><i>Posted:</i> 14 May, 2026</span> </li>
                            </ul>
                         </div>
-                        <!--Footer Widget End--> 
+                        <!--Footer Widget End-->
                      </div>
                      <div class="col-lg-3 col-md-6 col-sm-6">
-                        <!--Footer Widget Start-->
                         <div class="footer-widget">
-                           <div id="fpro-slider" class="owl-carousel owl-theme">
-                              
-                              <!--Footer Product End--> 
-                           </div>
-                           <div class="footer-widget">
-   <h4>Farmer Support</h4>
-
+   <h4>Quick Links</h4>
    <ul class="quick-links">
-      <li><a href="#">24/7 Farming Help</a></li>
-      <li><a href="#">Crop Guidance</a></li>
-      <li><a href="#">Government Support</a></li>
-      <li><a href="#">Modern Equipment Tips</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seeds.html">Seeds</a></li>
+      <li><a href="success-story.html">Success Stories</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact-one.html">Contact</a></li>
    </ul>
 </div>
-                        </div>
-                        <!--Footer Widget End--> 
                      </div>
                   </div>
                </div>
@@ -804,7 +801,7 @@
             <div class="footer-copyr wf100">
                <div class="container">
                   <div class="row">
-                     <div class="col-md-4 col-sm-4"> <img src="images/logo.png" alt=""> </div>
+                     <div class="col-md-4 col-sm-4"> <img src="images/logo.png" alt="Gramin Saathi logo"> </div>
                      <div class="col-md-8 col-sm-8">
                         <p>© 2026 Gramin Saathi. All Rights Reserved.</p>
                   </div>
