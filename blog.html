@@ -109,11 +109,7 @@
                         <!--Footer Widget Start-->
                         <div class="footer-widget">
                            <h4>Latest Posts</h4>
-                           <ul class="lastest-products">
-                              <li> <img src="images/flp1.jpg" alt="Top Organic Farming Methods For Beginners"> <strong><a href="blog-details.html?slug=top-organic-farming-tips">Top Organic Farming Methods For Beginners</a></strong> <span class="pdate"><i>Posted:</i> 10 May, 2026</span> </li>
-                              <li> <img src="images/flp2.jpg" alt="Government Schemes Helping Indian Farmers"> <strong><a href="blog-details.html?slug=government-schemes-every-farmer-should-know">Government Schemes Helping Indian Farmers</a></strong> <span class="pdate"><i>Posted:</i> 12 May, 2026</span> </li>
-                              <li> <img src="images/flp3.jpg" alt="Smart Irrigation Techniques Saving Water"> <strong><a href="blog-details.html?slug=smart-irrigation-techniques-saving-water">Smart Irrigation Techniques Saving Water</a></strong> <span class="pdate"><i>Posted:</i> 14 May, 2026</span> </li>
-                           </ul>
+                           <ul class="lastest-products" data-latest-posts="3"><li style="padding:0;">Loading...</li></ul>
                         </div>
                         <!--Footer Widget End-->
                      </div>
@@ -155,45 +151,35 @@
       <script src="js/custom.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
       <script src="js/supabase-config.js"></script>
-      <script src="js/blog-data.js"></script>
+      <script src="js/blog-common.js"></script>
       <script>
-        // Fallback posts shown if Supabase is not yet configured or has no blogs
-        const fallbackBlogs = window.GS_BLOGS;
-
-        function renderBlogs(list) {
+        (async () => {
           const container = document.getElementById('blogListContainer');
-          container.innerHTML = '';
-          list.forEach(blog => {
-            const link = blog.slug ? `blog-details.html?slug=${encodeURIComponent(blog.slug)}` : 'blog-details.html';
-            container.innerHTML += `
+          try {
+            const posts = await gsFetchPosts();
+            if (!posts.length) {
+              container.innerHTML = '<div class="col-12"><p style="padding:30px 15px;text-align:center;font-size:16px;">Abhi koi article publish nahi hua hai. Jaldi hi naye articles aayenge!</p></div>';
+              return;
+            }
+            container.innerHTML = posts.map(function (blog) {
+              const link = 'blog-details.html?slug=' + encodeURIComponent(blog.slug);
+              const date = blog.created_at ? new Date(blog.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+              return `
               <div class="col-md-6">
                 <div class="blog-small-post">
                   <div class="post-thumb"> <a href="${link}"><i class="fas fa-link"></i></a> <img src="${gsEsc(blog.image_url || 'images/h2news1.jpg')}" alt="${gsEsc(blog.title)}"> </div>
                   <div class="post-txt">
-                    <span class="pdate"> <i class="fas fa-calendar-alt"></i> ${blog.created_at ? new Date(blog.created_at).toLocaleDateString() : ''}</span>
+                    <span class="pdate"> <i class="fas fa-calendar-alt"></i> ${gsEsc(date)}</span>
                     <h5><a href="${link}">${gsEsc(blog.title)}</a></h5>
                     <p>${gsEsc(blog.excerpt || '')}</p>
                     <a href="${link}" class="rm">Read More</a>
                   </div>
                 </div>
               </div>`;
-          });
-        }
-
-        (async () => {
-          try {
-            const { data, error } = await supabaseClient
-              .from('blogs')
-              .select('*')
-              .eq('published', true)
-              .order('created_at', { ascending: false });
-            if (error || !data || data.length === 0) {
-              renderBlogs(fallbackBlogs);
-            } else {
-              renderBlogs(data);
-            }
+            }).join('');
           } catch (e) {
-            renderBlogs(fallbackBlogs);
+            console.error(e);
+            container.innerHTML = '<div class="col-12"><p style="padding:30px 15px;text-align:center;">Articles abhi load nahi ho paaye. Thodi der baad dobara try karein.</p></div>';
           }
         })();
       </script>
