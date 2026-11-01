@@ -18,7 +18,13 @@
       <link href="css/prettyPhoto.css" rel="stylesheet">
       <link href="css/all.min.css" rel="stylesheet">
       <!-- CSS FILES End -->
-   </head>
+   <style>
+         #bd-content ul { list-style: disc; padding-left: 22px; margin: 0 0 15px; }
+         #bd-content li { margin-bottom: 6px; }
+         #bd-content h4 { margin: 22px 0 10px; }
+         #bd-content p { margin-bottom: 15px; }
+      </style>
+</head>
    <body>
       <div class="wrapper">
          <!--Header Start-->
@@ -72,7 +78,7 @@
                      <div class="col-lg-9 col-md-8">
                         <!--Blog Single Content Start-->
                         <div class="blog-single-content">
-                           <div class="blog-single-thumb"><img id="bd-image" src="images/blog/bf4.jpg" alt="Loading..."></div>
+                           <div class="blog-single-thumb"><img id="bd-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></div>
                            <h3 id="bd-title2">Loading...</h3>
                            <ul class="post-meta">
                               <li><i class="fas fa-user-circle"></i> Gramin Saathi Team</li>
@@ -101,11 +107,7 @@
                            <!--Widget Start-->
                            <div class="side-widget">
                               <h5>News & Articles</h5>
-                              <ul class="lastest-products">
-                                 <li> <img src="images/flp1.jpg" alt="Top Organic Farming Methods For Beginners"> <strong><a href="blog-details.html?slug=top-organic-farming-tips">Top Organic Farming Methods For Beginners</a></strong> <span class="pdate"><i class="fas fa-calendar-alt"></i> 10 May, 2026</span> </li>
-                                 <li> <img src="images/flp2.jpg" alt="Government Schemes Helping Indian Farmers"> <strong><a href="blog-details.html?slug=government-schemes-every-farmer-should-know">Government Schemes Helping Indian Farmers</a></strong> <span class="pdate"><i class="fas fa-calendar-alt"></i> 12 May, 2026</span> </li>
-                                 <li> <img src="images/flp3.jpg" alt="Smart Irrigation Techniques Saving Water"> <strong><a href="blog-details.html?slug=smart-irrigation-techniques-saving-water">Smart Irrigation Techniques Saving Water</a></strong> <span class="pdate"><i class="fas fa-calendar-alt"></i> 14 May, 2026</span> </li>
-                              </ul>
+                              <ul class="lastest-products" data-latest-posts="3"><li style="padding:0;">Loading...</li></ul>
                            </div>
                            <!--Widget Start--> 
                            <!--Widget Start-->
@@ -159,11 +161,7 @@
                         <!--Footer Widget Start-->
                         <div class="footer-widget">
                            <h4>Latest Posts</h4>
-                           <ul class="lastest-products">
-                              <li> <img src="images/flp1.jpg" alt="Top Organic Farming Methods For Beginners"> <strong><a href="blog-details.html?slug=top-organic-farming-tips">Top Organic Farming Methods For Beginners</a></strong> <span class="pdate"><i>Posted:</i> 10 May, 2026</span> </li>
-                              <li> <img src="images/flp2.jpg" alt="Government Schemes Helping Indian Farmers"> <strong><a href="blog-details.html?slug=government-schemes-every-farmer-should-know">Government Schemes Helping Indian Farmers</a></strong> <span class="pdate"><i>Posted:</i> 12 May, 2026</span> </li>
-                              <li> <img src="images/flp3.jpg" alt="Smart Irrigation Techniques Saving Water"> <strong><a href="blog-details.html?slug=smart-irrigation-techniques-saving-water">Smart Irrigation Techniques Saving Water</a></strong> <span class="pdate"><i>Posted:</i> 14 May, 2026</span> </li>
-                           </ul>
+                           <ul class="lastest-products" data-latest-posts="3"><li style="padding:0;">Loading...</li></ul>
                         </div>
                         <!--Footer Widget End-->
                      </div>
@@ -205,7 +203,7 @@
       <script src="js/custom.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
       <script src="js/supabase-config.js"></script>
-      <script src="js/blog-data.js"></script>
+      <script src="js/blog-common.js"></script>
       <script>
         (async () => {
           const params = new URLSearchParams(window.location.search);
@@ -217,40 +215,38 @@
           const categoryEl = document.getElementById('bd-category');
           const contentEl = document.getElementById('bd-content');
 
-          const fallback = window.GS_BLOGS[0];
-          const bySlug = {};
-          window.GS_BLOGS.forEach(function (b) { bySlug[b.slug] = b; });
-
-          function render(blog) {
-            titleEl.textContent = blog.title;
-            title2El.textContent = blog.title;
-            imageEl.src = blog.image_url || 'images/h2news1.jpg';
-            imageEl.alt = blog.title;
-            document.title = blog.title + ' - Gramin Saathi';
-            categoryEl.textContent = blog.category || 'General';
-            dateEl.textContent = blog.created_at ? new Date(blog.created_at).toLocaleDateString() : '';
-            contentEl.innerHTML = '<p>' + gsEsc(blog.content || '').replace(/\n+/g, '</p><p>') + '</p>';
+          function notFound(msg) {
+            if (titleEl) titleEl.textContent = 'Article';
+            title2El.textContent = 'Article nahi mila';
+            document.title = 'Article nahi mila - Gramin Saathi';
+            imageEl.style.display = 'none';
+            contentEl.innerHTML = '<p>' + gsEsc(msg) + '</p><p><a href="blog.html" class="rm">&larr; Saare articles dekhein</a></p>';
           }
 
-          if (!slug) {
-            render(fallback);
-            return;
-          }
-          if (bySlug[slug]) { render(bySlug[slug]); }
+          if (!slug) { notFound('Ye article available nahi hai.'); return; }
 
           try {
-            const { data, error } = await supabaseClient
+            const client = await gsGetClient();
+            const { data, error } = await client
               .from('blogs')
               .select('*')
               .eq('slug', slug)
-              .single();
-            if (error || !data) {
-              if (!bySlug[slug]) render(fallback);
-            } else {
-              render(data);
-            }
+              .eq('published', true)
+              .maybeSingle();
+            if (error) throw error;
+            if (!data) { notFound('Ye article available nahi hai ya hata diya gaya hai.'); return; }
+
+            if (titleEl) titleEl.textContent = data.title;
+            title2El.textContent = data.title;
+            if (data.image_url) { imageEl.src = data.image_url; } else { imageEl.style.display = 'none'; }
+            imageEl.alt = data.title;
+            document.title = data.title + ' - Gramin Saathi';
+            categoryEl.textContent = data.category || 'General';
+            dateEl.textContent = data.created_at ? new Date(data.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+            contentEl.innerHTML = gsFormatContent(data.content);
           } catch (e) {
-            if (!bySlug[slug]) render(fallback);
+            console.error(e);
+            notFound('Article abhi load nahi ho paaya. Thodi der baad dobara try karein.');
           }
         })();
       </script>
