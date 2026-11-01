@@ -44,6 +44,17 @@
     .badge-unread { background:#c0392b; color:#fff; padding:2px 7px; border-radius:10px; font-size:11px; }
     .badge-pending { background:#f39c12; color:#fff; padding:2px 7px; border-radius:10px; font-size:11px; }
     .empty-note { color:#888; font-size:13px; padding:15px 0; }
+    form.inline-form label.fl { display:block; font-size:12.5px; font-weight:700; color:#444; margin:4px 0 4px; }
+    .hint { font-size:12px; color:#777; margin:-4px 0 10px; line-height:1.5; }
+    .msg-ok, .msg-err, .msg-warn { padding:10px 14px; border-radius:6px; font-size:13.5px; margin-bottom:14px; display:none; }
+    .msg-ok { background:#e8f5e9; color:#1b5e20; border:1px solid #c8e6c9; }
+    .msg-err { background:#fdecea; color:#a93226; border:1px solid #f5c6c0; }
+    .msg-warn { background:#fff4e0; color:#8a5a00; border:1px solid #f3d9a4; }
+    #imgPreview { display:none; max-width:240px; max-height:160px; border-radius:6px; margin:0 0 10px; border:1px solid #ddd; object-fit:cover; }
+    .thumb-sm { width:56px; height:40px; object-fit:cover; border-radius:4px; background:#eee; }
+    details.adv { margin-bottom:12px; font-size:13px; }
+    details.adv summary { cursor:pointer; color:#2e7d32; font-weight:600; margin-bottom:8px; }
+    a.btn-view { background:#eef3fb; color:#1f4e8c; text-decoration:none; display:inline-block; }
   </style>
 </head>
 <body>
@@ -62,25 +73,59 @@
 
     <!-- BLOGS PANEL -->
     <div class="panel active" id="blogsPanel">
+      <div class="msg-warn" id="adminWarn"></div>
       <h4 id="blogFormTitle">Add New Blog</h4>
+      <div id="blogMsg"></div>
       <form class="inline-form" id="blogForm">
         <input type="hidden" id="blogId">
-        <input type="text" id="blogTitle" placeholder="Blog Title" required>
-        <input type="text" id="blogSlug" placeholder="URL Slug (e.g. organic-farming-tips)" required>
-        <input type="text" id="blogCategory" placeholder="Category (e.g. Organic Farming)">
-        <input type="text" id="blogImage" placeholder="Image URL (e.g. images/h2news1.jpg)">
-        <input type="text" id="blogExcerpt" placeholder="Short excerpt (1 line)">
-        <textarea id="blogContent" placeholder="Full blog content" required></textarea>
-        <label><input type="checkbox" id="blogPublished" checked style="width:auto;"> Published</label><br><br>
-        <button type="submit">Save Blog</button>
-        <button type="button" onclick="resetBlogForm()" style="background:#999; margin-left:8px;">Cancel Edit</button>
+
+        <label class="fl" for="blogTitle">Title *</label>
+        <input type="text" id="blogTitle" placeholder="Blog ka title likho" required maxlength="200">
+
+        <label class="fl" for="blogCategory">Category</label>
+        <input type="text" id="blogCategory" list="catList" placeholder="Category chuno ya khud likho" maxlength="60">
+        <datalist id="catList">
+          <option value="Organic Farming"></option>
+          <option value="Dairy Farming"></option>
+          <option value="Government Schemes"></option>
+          <option value="Irrigation"></option>
+          <option value="Agri Business"></option>
+          <option value="Modern Equipment"></option>
+          <option value="Seeds"></option>
+          <option value="Success Stories"></option>
+        </datalist>
+
+        <label class="fl" for="blogImageFile">Cover Image</label>
+        <input type="file" id="blogImageFile" accept="image/*">
+        <div class="hint" id="imgStatus">Apne phone/computer se image chuno. Wo apne aap chhoti (compress) hokar upload ho jayegi.</div>
+        <img id="imgPreview" alt="Preview">
+        <input type="text" id="blogImage" placeholder="Ya image ka link yaha paste karo (optional)">
+
+        <label class="fl" for="blogExcerpt">Short Summary</label>
+        <input type="text" id="blogExcerpt" placeholder="1-2 line ka saar. Khali chhodo to content se apne aap ban jayega." maxlength="300">
+
+        <label class="fl" for="blogContent">Content *</label>
+        <textarea id="blogContent" placeholder="Poora blog yaha likho" required style="min-height:280px;"></textarea>
+        <div class="hint">
+          <b>Formatting:</b> Khali line chhodo = naya paragraph &nbsp;|&nbsp; Line ki shuruaat me <code>## </code> = heading &nbsp;|&nbsp;
+          Line ki shuruaat me <code>- </code> = bullet &nbsp;|&nbsp; <code>**text**</code> = <b>bold</b>
+        </div>
+
+        <details class="adv">
+          <summary>Advanced: URL slug (zaroorat nahi, apne aap ban jata hai)</summary>
+          <input type="text" id="blogSlug" placeholder="Khali chhodo to title se banega, jaise: organic-farming-tips">
+        </details>
+
+        <label><input type="checkbox" id="blogPublished" checked style="width:auto;"> Published (site pe dikhega. Band karoge to draft rahega)</label><br><br>
+        <button type="submit" id="blogSaveBtn">Save Blog</button>
+        <button type="button" onclick="resetBlogForm()" style="background:#999; margin-left:8px;">Cancel / Naya Blog</button>
       </form>
       <hr>
       <table>
-        <thead><tr><th>Title</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead>
+        <thead><tr><th>Image</th><th>Title</th><th>Category</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
         <tbody id="blogsTableBody"></tbody>
       </table>
-      <p class="empty-note" id="blogsEmpty" style="display:none;">Koi blog nahi hai abhi. Upar form se add karo.</p>
+      <p class="empty-note" id="blogsEmpty" style="display:none;">Abhi koi blog nahi hai. Upar form se pehla blog add karo.</p>
     </div>
 
     <!-- MESSAGES PANEL -->
@@ -118,7 +163,17 @@
     // ---------- AUTH GUARD ----------
     (async () => {
       const { data: { session } } = await supabaseClient.auth.getSession();
-      if (!session) window.location.href = "login.html";
+      if (!session) { window.location.href = "login.html"; return; }
+      // Check: kya ye email admin list (admins table) me hai?
+      try {
+        const { data, error } = await supabaseClient.rpc('is_admin');
+        if (!error && data === false) {
+          const w = document.getElementById('adminWarn');
+          w.style.display = 'block';
+          w.innerHTML = '⚠️ <b>' + esc(session.user.email) + '</b> admin list me nahi hai, isliye blog save/delete nahi hoga. ' +
+            'Supabase → SQL Editor me ye run karo: <code>insert into admins (email) values (\'' + esc(session.user.email) + '\') on conflict do nothing;</code>';
+        }
+      } catch (e) { /* is_admin function na ho to ignore */ }
     })();
 
     function logout() {
@@ -136,23 +191,109 @@
     });
 
     // ---------- BLOGS ----------
+    const BUCKET = 'blog-images';
+    let uploading = false;
+
+    function showBlogMsg(html, type) {
+      const box = document.getElementById('blogMsg');
+      box.className = type === 'ok' ? 'msg-ok' : 'msg-err';
+      box.style.display = 'block';
+      box.innerHTML = html;
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    function hideBlogMsg() { document.getElementById('blogMsg').style.display = 'none'; }
+
+    function slugify(s) {
+      return String(s || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
+    }
+    function autoExcerpt(content) {
+      const t = String(content || '').replace(/[#*>_`-]/g, ' ').replace(/\s+/g, ' ').trim();
+      return t.length > 150 ? t.slice(0, 150).replace(/\s+\S*$/, '') + '…' : t;
+    }
+    function fmtDate(d) {
+      return d ? new Date(d).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : '-';
+    }
+
+    // Image ko chhota karke (max 1400px, JPEG) taaki site tez chale
+    function compressImage(file, maxW, quality) {
+      return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+          let w = img.naturalWidth, h = img.naturalHeight;
+          if (w > maxW) { h = Math.round(h * maxW / w); w = maxW; }
+          const c = document.createElement('canvas');
+          c.width = w; c.height = h;
+          const ctx = c.getContext('2d');
+          ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h);
+          ctx.drawImage(img, 0, 0, w, h);
+          URL.revokeObjectURL(url);
+          c.toBlob(b => b ? resolve(b) : reject(new Error('Image compress nahi ho paayi')), 'image/jpeg', quality);
+        };
+        img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Ye image file khul nahi paayi')); };
+        img.src = url;
+      });
+    }
+
+    function setPreview(url) {
+      const p = document.getElementById('imgPreview');
+      if (url) { p.src = url; p.style.display = 'block'; } else { p.style.display = 'none'; p.removeAttribute('src'); }
+    }
+
+    document.getElementById('blogImageFile').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      const status = document.getElementById('imgStatus');
+      if (!file) return;
+      uploading = true;
+      document.getElementById('blogSaveBtn').disabled = true;
+      status.style.color = '#777';
+      status.textContent = '⏳ Image upload ho rahi hai...';
+      try {
+        const blob = await compressImage(file, 1400, 0.85);
+        const name = 'blog-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7) + '.jpg';
+        const { error } = await supabaseClient.storage.from(BUCKET).upload(name, blob, { contentType: 'image/jpeg', cacheControl: '31536000' });
+        if (error) throw error;
+        const { data } = supabaseClient.storage.from(BUCKET).getPublicUrl(name);
+        document.getElementById('blogImage').value = data.publicUrl;
+        setPreview(data.publicUrl);
+        status.style.color = '#2e7d32';
+        status.textContent = '✅ Image upload ho gayi (' + Math.round(blob.size / 1024) + ' KB).';
+      } catch (err) {
+        console.error(err);
+        const m = String(err.message || err);
+        status.style.color = '#c0392b';
+        status.textContent = '❌ Upload fail: ' + m + (/bucket|not found|policy|row-level/i.test(m)
+          ? ' → Supabase me sql/storage-setup.sql run kiya hai? Aur admin email admins table me hai?' : '');
+        e.target.value = '';
+      } finally {
+        uploading = false;
+        document.getElementById('blogSaveBtn').disabled = false;
+      }
+    });
+
+    document.getElementById('blogImage').addEventListener('input', (e) => setPreview(e.target.value.trim()));
+
     async function loadBlogs() {
       const { data, error } = await supabaseClient.from('blogs').select('*').order('created_at', { ascending: false });
       const tbody = document.getElementById('blogsTableBody');
       const empty = document.getElementById('blogsEmpty');
       tbody.innerHTML = '';
-      if (error) { console.error(error); return; }
+      if (error) { console.error(error); showBlogMsg('Blogs load nahi hue: ' + esc(error.message), 'err'); return; }
       if (!data || data.length === 0) { empty.style.display = 'block'; return; }
       empty.style.display = 'none';
       data.forEach(blog => {
         blogsCache[blog.id] = blog;
         tbody.innerHTML += `
           <tr>
+            <td>${blog.image_url ? `<img class="thumb-sm" src="${esc(blog.image_url)}" alt="">` : '-'}</td>
             <td>${esc(blog.title)}</td>
             <td>${esc(blog.category || '-')}</td>
+            <td>${esc(fmtDate(blog.created_at))}</td>
             <td>${blog.published ? '✅ Published' : '⏸ Draft'}</td>
             <td>
               <button class="btn-sm btn-edit" onclick="editBlog('${esc(blog.id)}')">Edit</button>
+              ${blog.published ? `<a class="btn-sm btn-view" target="_blank" href="../blog-details.html?slug=${encodeURIComponent(blog.slug)}">View</a>` : ''}
               <button class="btn-sm btn-delete" onclick="deleteBlog('${esc(blog.id)}')">Delete</button>
             </td>
           </tr>`;
@@ -162,12 +303,15 @@
     function editBlog(id) {
       const blog = blogsCache[id];
       if (!blog) return;
+      hideBlogMsg();
       document.getElementById('blogFormTitle').textContent = 'Edit Blog';
       document.getElementById('blogId').value = blog.id;
       document.getElementById('blogTitle').value = blog.title;
       document.getElementById('blogSlug').value = blog.slug;
       document.getElementById('blogCategory').value = blog.category || '';
       document.getElementById('blogImage').value = blog.image_url || '';
+      document.getElementById('blogImageFile').value = '';
+      setPreview(blog.image_url);
       document.getElementById('blogExcerpt').value = blog.excerpt || '';
       document.getElementById('blogContent').value = blog.content;
       document.getElementById('blogPublished').checked = blog.published;
@@ -179,35 +323,60 @@
       document.getElementById('blogForm').reset();
       document.getElementById('blogId').value = '';
       document.getElementById('blogPublished').checked = true;
+      document.getElementById('imgStatus').style.color = '#777';
+      document.getElementById('imgStatus').textContent = 'Apne phone/computer se image chuno. Wo apne aap chhoti (compress) hokar upload ho jayegi.';
+      setPreview('');
     }
 
     document.getElementById('blogForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (uploading) { showBlogMsg('Image abhi upload ho rahi hai, thoda ruko.', 'err'); return; }
+      hideBlogMsg();
+      const btn = document.getElementById('blogSaveBtn');
+      btn.disabled = true;
       const id = document.getElementById('blogId').value;
+      const title = document.getElementById('blogTitle').value.trim();
+      const content = document.getElementById('blogContent').value;
+      const slug = slugify(document.getElementById('blogSlug').value || title) || 'post';
       const payload = {
-        title: document.getElementById('blogTitle').value,
-        slug: document.getElementById('blogSlug').value,
-        category: document.getElementById('blogCategory').value,
-        image_url: document.getElementById('blogImage').value,
-        excerpt: document.getElementById('blogExcerpt').value,
-        content: document.getElementById('blogContent').value,
+        title: title,
+        slug: slug,
+        category: document.getElementById('blogCategory').value.trim() || 'General',
+        image_url: document.getElementById('blogImage').value.trim() || null,
+        excerpt: document.getElementById('blogExcerpt').value.trim() || autoExcerpt(content),
+        content: content,
         published: document.getElementById('blogPublished').checked
       };
-      let error;
-      if (id) {
-        ({ error } = await supabaseClient.from('blogs').update(payload).eq('id', id));
-      } else {
-        ({ error } = await supabaseClient.from('blogs').insert(payload));
+      try {
+        let error, finalSlug = slug;
+        const run = (p) => id
+          ? supabaseClient.from('blogs').update(p).eq('id', id)
+          : supabaseClient.from('blogs').insert(p);
+        ({ error } = await run(payload));
+        if (error && error.code === '23505') {            // same slug pehle se hai -> chhota suffix lagao
+          finalSlug = slug + '-' + Math.random().toString(36).slice(2, 6);
+          ({ error } = await run({ ...payload, slug: finalSlug }));
+        }
+        if (error) throw error;
+        const wasEdit = !!id;
+        resetBlogForm();
+        await loadBlogs();
+        showBlogMsg('✅ Blog ' + (wasEdit ? 'update' : 'save') + ' ho gaya. ' +
+          (payload.published ? '<a href="../blog-details.html?slug=' + encodeURIComponent(finalSlug) + '" target="_blank">Site pe dekho →</a>' : '(Draft hai, site pe nahi dikhega)'), 'ok');
+      } catch (err) {
+        console.error(err);
+        const m = String(err.message || err);
+        showBlogMsg('❌ Save nahi hua: ' + esc(m) + (/row-level|policy|permission/i.test(m)
+          ? '<br>Is account ka email Supabase ke <b>admins</b> table me hona chahiye (upar warning dekho).' : ''), 'err');
+      } finally {
+        btn.disabled = false;
       }
-      if (error) { alert('Error: ' + error.message); return; }
-      resetBlogForm();
-      loadBlogs();
     });
 
     async function deleteBlog(id) {
-      if (!confirm('Ye blog delete karna hai?')) return;
+      if (!confirm('Ye blog delete karna hai? Ye wapas nahi aayega.')) return;
       const { error } = await supabaseClient.from('blogs').delete().eq('id', id);
-      if (error) { alert('Error: ' + error.message); return; }
+      if (error) { showBlogMsg('❌ Delete nahi hua: ' + esc(error.message), 'err'); return; }
       loadBlogs();
     }
 
