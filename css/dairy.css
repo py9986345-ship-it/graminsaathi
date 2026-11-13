@@ -1,0 +1,68 @@
+/* ===== Dairy Farming service page (hero banner untouched) ===== */
+.page-content *{box-sizing:border-box;}
+.dr-sec{padding:80px 0;}
+.dr-alt{background:#f4f8f2;}
+.dr-head{text-align:center;max-width:720px;margin:0 auto 45px;}
+.dr-head h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.dr-head h2{font-size:34px;line-height:1.25;color:#1b2e1d;margin:0 0 12px;}
+.dr-head p{color:#666;font-size:16px;margin:0;}
+.dr-img{width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.14);display:block;}
+.dr-btn{display:inline-block;padding:13px 30px;border-radius:30px;font-weight:600;font-size:16px;margin:0 10px 10px 0;transition:.2s;}
+.dr-btn.g{background:#2e7d32;color:#fff;}
+.dr-btn.g:hover{background:#256428;color:#fff;text-decoration:none;}
+.dr-btn.w{background:#fff;color:#2e7d32;}
+.dr-btn.w:hover{background:#e8f5e9;color:#2e7d32;text-decoration:none;}
+.dr-btn.o{border:2px solid #fff;color:#fff;}
+.dr-btn.o:hover{background:#fff;color:#2e7d32;text-decoration:none;}
+
+/* About */
+.dr-about h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.dr-about h2{font-size:34px;color:#1b2e1d;margin:0 0 16px;line-height:1.25;}
+.dr-about p{color:#555;line-height:1.8;font-size:16px;}
+.dr-about ul{list-style:none;padding:0;margin:18px 0 0;}
+.dr-about ul li{padding:6px 0 6px 32px;position:relative;color:#333;}
+.dr-about ul li:before{content:"\f058";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;left:0;top:7px;color:#66bb6a;font-size:18px;}
+
+/* Benefits */
+.dr-cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.dr-card{background:#fff;border-radius:14px;padding:30px 24px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.06);transition:.25s;}
+.dr-card:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(46,125,50,.18);}
+.dr-card .ic{width:68px;height:68px;border-radius:50%;background:#e8f5e9;color:#2e7d32;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.dr-card h4{font-size:19px;color:#1b2e1d;margin:0 0 8px;}
+.dr-card p{font-size:14.5px;color:#666;line-height:1.7;margin:0;}
+
+/* Practices */
+.dr-cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.dr-pcard{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.07);transition:.25s;}
+.dr-pcard:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(46,125,50,.18);}
+.dr-pcard img{width:100%;height:220px;object-fit:cover;display:block;}
+.dr-pcard div{padding:22px 22px 26px;}
+.dr-pcard h4{margin:0 0 8px;font-size:20px;color:#1b2e1d;}
+.dr-pcard p{margin:0;color:#666;font-size:15px;line-height:1.7;}
+
+/* Tips (green) */
+.dr-tips{background:linear-gradient(135deg,#2e7d32,#1f5e24);color:#fff;padding:80px 0;}
+.dr-tips h5{color:#c8e6c9;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.dr-tips h2{font-size:34px;color:#fff;margin:0 0 22px;line-height:1.25;}
+.dr-tips ul{list-style:none;padding:0;margin:0;}
+.dr-tips ul li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:17px;color:#fff;}
+.dr-tips ul li:last-child{border-bottom:none;}
+.dr-tips ul li i{color:#a5d6a7;font-size:20px;margin-top:3px;}
+.dr-tips .dr-img{box-shadow:0 12px 34px rgba(0,0,0,.3);}
+
+/* CTA */
+.dr-cta{background:linear-gradient(rgba(27,60,30,.88),rgba(27,60,30,.88)),url('../images/dairy/cta-bg.jpg') center/cover;color:#fff;text-align:center;padding:85px 0;}
+.dr-cta h2{font-size:38px;color:#fff;margin:0 0 14px;line-height:1.25;}
+.dr-cta p{font-size:18px;color:#e0f0e0;max-width:680px;margin:0 auto 28px;line-height:1.7;}
+
+@media (max-width:991px){
+  .dr-cards4{grid-template-columns:repeat(2,1fr);}
+  .dr-cards3{grid-template-columns:repeat(2,1fr);}
+  .dr-img{margin-top:25px;}
+}
+@media (max-width:767px){
+  .dr-sec,.dr-tips,.dr-cta{padding:55px 0;}
+  .dr-head h2,.dr-about h2,.dr-tips h2{font-size:27px;}
+  .dr-cards4,.dr-cards3{grid-template-columns:1fr;}
+  .dr-cta h2{font-size:28px;}
+}
