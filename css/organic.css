@@ -1,0 +1,106 @@
+/* ===== Organic Farming service page ===== */
+html{scroll-behavior:smooth;}
+.page-content *{box-sizing:border-box;}
+.og-sec{padding:80px 0;}
+.og-alt{background:#f4f8f2;}
+.og-head{text-align:center;max-width:720px;margin:0 auto 45px;}
+.og-head h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.og-head h2{font-size:34px;line-height:1.25;color:#1b2e1d;margin:0 0 12px;}
+.og-head p{color:#666;font-size:16px;margin:0;}
+
+/* 1. Hero */
+.og-hero{position:relative;min-height:520px;display:flex;align-items:center;color:#fff;
+  background:linear-gradient(90deg,rgba(10,35,12,.78) 0%,rgba(10,35,12,.45) 55%,rgba(10,35,12,.1) 100%),
+  url('../images/organic/hero.jpg') center right/cover no-repeat;}
+.og-hero .wrap{max-width:640px;padding:60px 0 90px;}
+.og-hero small{display:inline-block;background:rgba(102,187,106,.9);color:#fff;padding:5px 14px;border-radius:20px;font-size:13px;letter-spacing:1px;margin-bottom:16px;}
+.og-hero h1{font-size:56px;line-height:1.1;color:#fff;margin:0 0 14px;font-weight:700;}
+.og-hero p{font-size:22px;color:#e8f5e9;margin:0 0 28px;letter-spacing:.5px;}
+.og-btn{display:inline-block;padding:13px 30px;border-radius:30px;font-weight:600;font-size:16px;margin:0 10px 10px 0;transition:.2s;}
+.og-btn.p{background:#66bb6a;color:#fff;}
+.og-btn.p:hover{background:#4caf50;color:#fff;text-decoration:none;}
+.og-btn.o{border:2px solid #fff;color:#fff;}
+.og-btn.o:hover{background:#fff;color:#2e7d32;text-decoration:none;}
+
+/* 2. Three highlights */
+.og-hl{margin-top:-60px;position:relative;z-index:2;padding-bottom:20px;}
+.og-hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.og-hl-card{background:#fff;border-radius:14px;padding:28px 26px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 8px 26px rgba(0,0,0,.12);}
+.og-hl-card .ic{flex:0 0 56px;width:56px;height:56px;border-radius:50%;background:#e8f5e9;color:#2e7d32;font-size:24px;display:flex;align-items:center;justify-content:center;}
+.og-hl-card h4{margin:0 0 4px;font-size:19px;color:#1b2e1d;}
+.og-hl-card p{margin:0;color:#666;font-size:14.5px;line-height:1.6;}
+
+/* 3. What is */
+.og-what h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.og-what h2{font-size:34px;color:#1b2e1d;margin:0 0 16px;line-height:1.25;}
+.og-what p{color:#555;line-height:1.8;font-size:16px;}
+.og-what ul{list-style:none;padding:0;margin:20px 0 0;}
+.og-what ul li{padding:6px 0 6px 32px;position:relative;color:#333;}
+.og-what ul li:before{content:"\f058";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;left:0;color:#66bb6a;font-size:18px;top:7px;}
+.og-img{width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.14);display:block;}
+
+/* 4. Why choose */
+.og-cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.og-card{background:#fff;border-radius:14px;padding:30px 24px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.06);transition:.25s;}
+.og-card:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(46,125,50,.18);}
+.og-card .ic{width:68px;height:68px;border-radius:50%;background:#e8f5e9;color:#2e7d32;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.og-card h4{font-size:19px;color:#1b2e1d;margin:0 0 8px;}
+.og-card p{font-size:14.5px;color:#666;line-height:1.7;margin:0;}
+
+/* 5. Practices */
+.og-prac{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;}
+.og-prac-item{flex:0 0 calc(33.333% - 15px);background:#fff;border:1px solid #e1ece0;border-radius:14px;padding:24px;display:flex;gap:16px;align-items:flex-start;}
+.og-prac-item .ic{flex:0 0 50px;width:50px;height:50px;border-radius:12px;background:#2e7d32;color:#fff;font-size:21px;display:flex;align-items:center;justify-content:center;}
+.og-prac-item h4{margin:0 0 5px;font-size:18px;color:#1b2e1d;}
+.og-prac-item p{margin:0;color:#666;font-size:14.5px;line-height:1.6;}
+
+/* 6. How to start (timeline) */
+.og-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;}
+.og-steps:before{content:"";position:absolute;top:30px;left:12.5%;right:12.5%;height:3px;background:#66bb6a;}
+.og-step{text-align:center;position:relative;padding:0 8px;}
+.og-step .num{width:60px;height:60px;border-radius:50%;background:#2e7d32;color:#fff;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;border:5px solid #f4f8f2;position:relative;z-index:1;}
+.og-step h4{font-size:19px;color:#1b2e1d;margin:0 0 6px;}
+.og-step p{color:#666;margin:0;font-size:14.5px;line-height:1.6;}
+
+/* 7. Natural inputs */
+.og-inputs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.og-input{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.07);transition:.25s;}
+.og-input:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(46,125,50,.18);}
+.og-input img{width:100%;height:190px;object-fit:cover;display:block;}
+.og-input div{padding:18px 18px 22px;}
+.og-input h4{margin:0 0 6px;font-size:18px;color:#1b2e1d;}
+.og-input p{margin:0;color:#666;font-size:14.5px;line-height:1.6;}
+
+/* 8. Government support */
+.og-gov h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.og-gov h2{font-size:34px;color:#1b2e1d;margin:0 0 16px;line-height:1.25;}
+.og-gov p{color:#555;line-height:1.8;font-size:16px;margin:0 0 24px;}
+.og-gov .og-btn.p{background:#2e7d32;}
+.og-gov .og-btn.p:hover{background:#256428;}
+
+/* 9. CTA */
+.og-cta{background:#2e7d32;color:#fff;text-align:center;padding:80px 0;}
+.og-cta h2{font-size:38px;color:#fff;margin:0 0 14px;line-height:1.25;}
+.og-cta p{font-size:18px;color:#e0f0e0;max-width:640px;margin:0 auto 28px;line-height:1.7;}
+.og-cta .og-btn.p{background:#fff;color:#2e7d32;}
+.og-cta .og-btn.p:hover{background:#e8f5e9;color:#2e7d32;}
+
+@media (max-width:991px){
+  .og-hl-grid{grid-template-columns:1fr;}
+  .og-hl{margin-top:-40px;}
+  .og-cards4,.og-inputs{grid-template-columns:repeat(2,1fr);}
+  .og-prac-item{flex:0 0 calc(50% - 11px);}
+  .og-steps{grid-template-columns:repeat(2,1fr);row-gap:34px;}
+  .og-steps:before{display:none;}
+  .og-img{margin-top:25px;}
+}
+@media (max-width:767px){
+  .og-sec{padding:55px 0;}
+  .og-hero{min-height:440px;background-position:68% center;}
+  .og-hero h1{font-size:38px;}
+  .og-hero p{font-size:17px;}
+  .og-head h2,.og-what h2,.og-gov h2{font-size:27px;}
+  .og-cards4,.og-inputs,.og-steps{grid-template-columns:1fr;}
+  .og-prac-item{flex:0 0 100%;}
+  .og-cta h2{font-size:28px;}
+}
