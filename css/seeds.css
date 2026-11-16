@@ -1,0 +1,80 @@
+/* ===== Seed Supply page ===== */
+html{scroll-behavior:smooth;}
+.page-content *{box-sizing:border-box;}
+.sd-sec{padding:80px 0;}
+.sd-alt{background:#f4f8f2;}
+.sd-head{text-align:center;max-width:720px;margin:0 auto 45px;}
+.sd-head h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.sd-head h2{font-size:34px;line-height:1.25;color:#1b2e1d;margin:0 0 12px;}
+.sd-head p{color:#666;font-size:16px;margin:0;}
+.sd-btn{display:inline-block;padding:13px 32px;border-radius:30px;font-weight:600;font-size:16px;transition:.2s;}
+.sd-btn.p{background:#66bb6a;color:#fff;}
+.sd-btn.p:hover{background:#4caf50;color:#fff;text-decoration:none;}
+.sd-img{width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.14);display:block;}
+
+/* 1. Hero */
+.sd-hero{min-height:560px;display:flex;align-items:center;text-align:center;color:#fff;
+  background:linear-gradient(rgba(10,50,22,.78),rgba(10,50,22,.7)),url('../images/seeds/hero.jpg') center/cover no-repeat;}
+.sd-hero .wrap{max-width:800px;margin:0 auto;padding:70px 0;}
+.sd-hero small{display:inline-block;background:rgba(102,187,106,.9);padding:5px 16px;border-radius:20px;font-size:13px;letter-spacing:2px;margin-bottom:18px;}
+.sd-hero h1{font-size:54px;line-height:1.12;color:#fff;margin:0 0 14px;font-weight:700;letter-spacing:1px;}
+.sd-hero h3{font-size:24px;color:#c8e6c9;font-weight:500;margin:0 0 16px;}
+.sd-hero p{font-size:17px;line-height:1.8;color:#e8f5e9;margin:0 0 30px;}
+
+/* 2. Seed type cards */
+.sd-grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.sd-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.07);transition:.25s;}
+.sd-card:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(46,125,50,.2);}
+.sd-card img{width:100%;height:215px;object-fit:cover;display:block;}
+.sd-card img.contain{object-fit:contain;background:#fff;}
+.sd-card div{padding:22px 22px 26px;}
+.sd-card h4{margin:0 0 8px;font-size:21px;color:#1b2e1d;}
+.sd-card p{margin:0;color:#666;font-size:15px;line-height:1.7;}
+
+/* 3. Why quality seeds */
+.sd-why h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.sd-why h2{font-size:34px;color:#1b2e1d;margin:0 0 26px;line-height:1.25;}
+.sd-why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.sd-why-card{background:#fff;border:1px solid #e1ece0;border-radius:14px;padding:24px;}
+.sd-why-card .ic{width:54px;height:54px;border-radius:50%;background:#e8f5e9;color:#2e7d32;font-size:22px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.sd-why-card h4{font-size:18px;color:#1b2e1d;margin:0 0 6px;}
+.sd-why-card p{margin:0;color:#666;font-size:14.5px;line-height:1.6;}
+
+/* 4. How to choose */
+.sd-choose h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.sd-choose h2{font-size:34px;color:#1b2e1d;margin:0 0 24px;line-height:1.25;}
+.sd-step{display:flex;gap:18px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #e3ece2;}
+.sd-step:last-child{border-bottom:none;}
+.sd-step .num{flex:0 0 46px;width:46px;height:46px;border-radius:50%;background:#2e7d32;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.sd-step h4{margin:0 0 4px;font-size:19px;color:#1b2e1d;}
+.sd-step p{margin:0;color:#666;font-size:15px;line-height:1.6;}
+
+/* 5. Storage tips (green) */
+.sd-tips{background:linear-gradient(135deg,#2e7d32,#1f5e24);padding:80px 0;color:#fff;}
+.sd-tips .sd-img{box-shadow:0 12px 34px rgba(0,0,0,.3);}
+.sd-tips h5{color:#c8e6c9;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.sd-tips h2{font-size:34px;color:#fff;margin:0 0 20px;line-height:1.25;}
+.sd-tips ul{list-style:none;padding:0;margin:0;}
+.sd-tips ul li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:17px;color:#fff;}
+.sd-tips ul li:last-child{border-bottom:none;}
+.sd-tips ul li i{color:#a5d6a7;font-size:20px;margin-top:3px;width:22px;text-align:center;}
+
+/* 6. CTA */
+.sd-cta{background:#14532d;color:#fff;text-align:center;padding:85px 0;}
+.sd-cta h2{font-size:38px;color:#fff;margin:0 0 14px;line-height:1.25;}
+.sd-cta p{font-size:18px;color:#cfe8d2;max-width:680px;margin:0 auto 28px;line-height:1.7;}
+
+@media (max-width:991px){
+  .sd-grid6{grid-template-columns:repeat(2,1fr);}
+  .sd-img{margin-bottom:25px;}
+  .sd-tips .sd-img{margin-top:25px;margin-bottom:0;}
+}
+@media (max-width:767px){
+  .sd-sec,.sd-tips,.sd-cta{padding:55px 0;}
+  .sd-hero{min-height:470px;}
+  .sd-hero h1{font-size:34px;}
+  .sd-hero h3{font-size:19px;}
+  .sd-head h2,.sd-why h2,.sd-choose h2,.sd-tips h2{font-size:27px;}
+  .sd-grid6,.sd-why-grid{grid-template-columns:1fr;}
+  .sd-cta h2{font-size:28px;}
+}
