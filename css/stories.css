@@ -1,0 +1,77 @@
+/* ===== Success Stories page ===== */
+html{scroll-behavior:smooth;}
+.page-content{background:#fff;}
+.page-content *{box-sizing:border-box;}
+.st-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 30px;border-radius:30px;font-weight:600;font-size:16px;transition:.2s;}
+.st-btn.dark{background:#14532d;color:#fff;}
+.st-btn.dark:hover{background:#0e3d21;color:#fff;text-decoration:none;}
+.st-btn.yellow{background:#ffd600;color:#1b2e1d;}
+.st-btn.yellow:hover{background:#ffea00;color:#1b2e1d;text-decoration:none;}
+
+/* 1. Hero */
+.st-hero{min-height:420px;display:flex;align-items:center;
+  background:linear-gradient(90deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.8) 38%,rgba(255,255,255,0) 68%),url('../images/stories/hero.jpg') center right/cover no-repeat;}
+.st-hero .wrap{max-width:560px;padding:60px 0;}
+.st-hero h1{font-size:58px;line-height:1.08;color:#1b6b2a;margin:0 0 10px;font-weight:700;}
+.st-hero h3{font-size:27px;color:#1b2e1d;font-weight:600;margin:0 0 14px;}
+.st-hero p{font-size:18px;line-height:1.7;color:#2c3e2d;margin:0 0 26px;}
+
+/* 2. Story cards */
+.st-sec{padding:55px 0 40px;}
+.st-title{display:flex;align-items:center;justify-content:center;gap:22px;margin:0 0 32px;position:relative;}
+.st-title:before,.st-title:after{content:"";flex:0 1 150px;height:2px;background:#4caf50;}
+.st-title h2{margin:0;font-size:36px;color:#1b6b2a;font-weight:700;text-align:center;}
+.st-leaf{text-align:center;color:#4caf50;font-size:22px;margin-bottom:6px;}
+.st-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.st-card{display:flex;background:#f4f9f3;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.08);min-height:240px;}
+.st-card .ph{flex:0 0 42%;position:relative;background:#c8e6c9;}
+.st-card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.st-card .ph .ini{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:54px;font-weight:700;background:linear-gradient(135deg,#2e7d32,#66bb6a);}
+.st-card .tx{flex:1;padding:22px 20px;display:flex;flex-direction:column;}
+.st-card .q{color:#66bb6a;font-size:28px;line-height:1;margin-bottom:10px;}
+.st-card .msg{font-size:15.5px;line-height:1.65;color:#1b2e1d;margin:0 0 14px;flex:1;}
+.st-card .tag{display:inline-block;align-self:flex-start;background:#e3f2e4;color:#2e7d32;font-size:12px;font-weight:600;padding:3px 10px;border-radius:12px;margin-bottom:10px;}
+.st-card .nm{color:#1b6b2a;font-weight:700;font-size:17px;margin:0 0 3px;}
+.st-card .loc{color:#555;font-size:13.5px;}
+.st-card .loc i{color:#2e7d32;margin-right:5px;}
+
+/* 3. Stats */
+.st-stats{margin:28px 0 0;background:#e8f5e9;border-radius:18px;padding:26px 10px;display:grid;grid-template-columns:repeat(3,1fr);}
+.st-stat{display:flex;align-items:center;justify-content:center;gap:16px;padding:6px 14px;}
+.st-stat + .st-stat{border-left:1px solid #b9d9bb;}
+.st-stat i{font-size:38px;color:#2e7d32;}
+.st-stat strong{display:block;font-size:34px;line-height:1;color:#14532d;}
+.st-stat span{display:block;margin-top:5px;font-size:14.5px;color:#444;}
+
+/* 4. CTA */
+.st-cta-wrap{padding:30px 0 70px;}
+.st-cta{border-radius:22px;overflow:hidden;padding:36px 40px;display:flex;align-items:center;gap:30px;color:#fff;
+  background:linear-gradient(90deg,rgba(12,60,26,.92),rgba(18,90,38,.82)),url('../images/stories/cta-bg.jpg') center/cover no-repeat;}
+.st-cta .trophy{flex:0 0 84px;width:84px;height:84px;border-radius:50%;border:3px solid rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;font-size:36px;color:#fff;}
+.st-cta .txt{flex:1;padding-right:30px;border-right:2px solid rgba(255,255,255,.6);}
+.st-cta h2{margin:0 0 6px;font-size:32px;color:#fff;}
+.st-cta p{margin:0;font-size:17px;color:#e3f2e4;}
+
+@media (max-width:1100px){
+  .st-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:991px){
+  .st-hero h1{font-size:44px;}
+  .st-stat i{font-size:30px;}
+  .st-stat strong{font-size:28px;}
+}
+@media (max-width:767px){
+  .st-hero{min-height:400px;background:linear-gradient(rgba(255,255,255,.86),rgba(255,255,255,.78)),url('../images/stories/hero.jpg') 75% center/cover no-repeat;}
+  .st-hero h1{font-size:36px;}
+  .st-hero h3{font-size:21px;}
+  .st-title:before,.st-title:after{display:none;}
+  .st-title h2{font-size:27px;}
+  .st-grid{grid-template-columns:1fr;}
+  .st-card{flex-direction:column;}
+  .st-card .ph{flex:0 0 220px;}
+  .st-stats{grid-template-columns:1fr;gap:14px;}
+  .st-stat + .st-stat{border-left:none;border-top:1px solid #b9d9bb;padding-top:16px;}
+  .st-cta{flex-direction:column;text-align:center;padding:30px 22px;}
+  .st-cta .txt{border-right:none;padding-right:0;}
+  .st-cta h2{font-size:25px;}
+}
