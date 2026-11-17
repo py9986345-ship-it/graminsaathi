@@ -3,7 +3,7 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="Gramin Saathi - Success Stories - Gramin Saathi">
+      <meta name="description" content="Real stories of Indian farmers who grew with the support of Gramin Saathi - Success Stories">
       <link rel="icon" href="images/favicon.png">
       <title>Success Stories - Gramin Saathi</title>
       <link href="css/custom.css" rel="stylesheet">
@@ -14,207 +14,7 @@
       <link href="css/prettyPhoto.css" rel="stylesheet">
       <link href="css/all.min.css" rel="stylesheet">
       <link href="css/slick.css" rel="stylesheet">
-      <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-      <style>
-html{scroll-behavior:smooth;}
-.page-content *{margin:0;padding:0;box-sizing:border-box;}
-.page-content{background:#f5f7f2;}
-
-
-/* HERO */
-
-.hero{
-    height:75vh;
-
-    background:
-    linear-gradient(rgba(0,0,0,0.5),
-    rgba(0,0,0,0.5)),
-    url('https://images.unsplash.com/photo-1682176252097-dfe4b240c960?auto=format&fit=crop&w=1600&q=80');
-
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-}
-
-.hero-content h1{
-    font-size:72px;
-    margin-bottom:20px;
-}
-
-.hero-content p{
-    font-size:24px;
-    margin-bottom:30px;
-}
-
-.hero-btn{
-    display:inline-block;
-    padding:15px 35px;
-    background:#16a34a;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    transition:0.3s;
-}
-
-.hero-btn:hover{
-    background:#15803d;
-}
-
-/* SECTION */
-
-.section-title{
-    text-align:center;
-    padding:70px 20px 20px;
-}
-
-.section-title h2{
-    font-size:52px;
-    color:#1f2937;
-}
-
-.section-title p{
-    color:gray;
-    margin-top:15px;
-    font-size:20px;
-}
-
-/* STORY CARDS */
-
-.story-container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:35px;
-    padding:50px;
-}
-
-.story-card{
-    width:360px;
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,0.1);
-    transition:0.4s;
-}
-
-.story-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.2);
-}
-
-.story-card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:25px;
-}
-
-.card-content h3{
-    color:#15803d;
-    font-size:30px;
-    margin-bottom:15px;
-}
-
-.card-content p{
-    color:#374151;
-    margin-bottom:15px;
-    line-height:1.6;
-}
-
-.card-content button{
-    padding:12px 25px;
-    border:none;
-    background:#15803d;
-    color:white;
-    border-radius:8px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.card-content button:hover{
-    background:#14532d;
-}
-
-/* STATS SECTION */
-
-.stats{
-    background:white;
-    padding:80px 10%;
-}
-
-.stats-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.stats-title h2{
-    font-size:48px;
-    color:#1f2937;
-}
-
-.stats-boxes{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:30px;
-}
-
-.stats-box{
-    background:#ecfdf5;
-    padding:40px;
-    border-radius:18px;
-    text-align:center;
-    transition:0.4s;
-}
-
-.stats-box:hover{
-    transform:translateY(-8px);
-}
-
-.stats-box i{
-    font-size:50px;
-    color:#16a34a;
-    margin-bottom:20px;
-}
-
-.stats-box h3{
-    font-size:38px;
-    color:#14532d;
-    margin-bottom:10px;
-}
-
-.stats-box p{
-    color:#374151;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.hero-content h1{
-    font-size:42px;
-}
-
-.hero-content p{
-    font-size:18px;
-}
-
-.section-title h2{
-    font-size:38px;
-}
-
-}
-
-
-      </style>
+      <link href="css/stories.css" rel="stylesheet">
    </head>
    <body>
       <div class="wrapper">
@@ -252,145 +52,50 @@ html{scroll-behavior:smooth;}
          <!--Header End-->
          <div class="page-content">
 
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>Farmer Success Stories</h1>
-
-<p>Real Inspiration From Successful Agriculture Entrepreneurs</p>
-
-<a href="#stories" class="hero-btn">Explore Stories</a>
-
-</div>
-
+<!-- 1. HERO -->
+<section class="st-hero">
+   <div class="container">
+      <div class="wrap">
+         <h1>Success Stories</h1>
+         <h3>Real Stories. Real Change.</h3>
+         <p>Discover inspiring stories of farmers who transformed their lives with the support of Gramin Saathi.</p>
+         <a class="st-btn dark" href="#stories">Be Inspired <i class="fas fa-arrow-right"></i></a>
+      </div>
+   </div>
 </section>
 
-<!-- STORIES -->
+<!-- 2. FARMER SUCCESS CARDS -->
+<section class="st-sec" id="stories">
+   <div class="container">
+      <div class="st-leaf"><i class="fas fa-leaf"></i></div>
+      <div class="st-title"><h2>Our Farmers&rsquo; Success Stories</h2></div>
+      <div class="st-grid" id="storyGrid"></div>
 
-<section id="stories">
-
-<div class="section-title">
-
-<h2>Inspiring Agriculture Journeys</h2>
-
-<p>Meet farmers who transformed their lives through agriculture</p>
-
-</div>
-
-<div class="story-container">
-
-<!-- CARD 1 -->
-
-<div class="story-card">
-
-<img src="images/aboutimg.jpg" alt="Farmer">
-
-<div class="card-content">
-
-<h3>Organic Farming Success</h3>
-
-<p>Ramesh Kumar started organic farming on 2 acres and now earns ₹12 lakh annually.</p>
-
-
-
-</div>
-
-</div>
-
-<!-- CARD 2 -->
-
-<div class="story-card">
-
-<img src="images/agallery1.jpg" alt="Farmer">
-
-<div class="card-content">
-
-<h3>Dairy Business Growth</h3>
-
-<p>Sunita Devi expanded from 2 cows to a profitable dairy business supplying milk daily.</p>
-
-
-
-</div>
-
-</div>
-
-<!-- CARD 3 -->
-
-<div class="story-card">
-
-<img src="images/current-pro1.jpg" alt="Farmer">
-
-<div class="card-content">
-
-<h3>Mushroom Farming Journey</h3>
-
-<p>Aman Sharma built a successful mushroom farming startup with minimal investment.</p>
-
-
-
-</div>
-
-</div>
-
-</div>
-
+      <!-- 3. ACHIEVEMENT STATISTICS -->
+      <!-- NOTE: yaha apne asli numbers daalein (sample numbers hain) -->
+      <div class="st-stats">
+         <div class="st-stat"><i class="fas fa-users"></i><div><strong>10,000+</strong><span>Farmers Reached</span></div></div>
+         <div class="st-stat"><i class="fas fa-leaf"></i><div><strong>95%</strong><span>Satisfaction Rate</span></div></div>
+         <div class="st-stat"><i class="fas fa-chart-bar"></i><div><strong>2x</strong><span>Income Growth</span></div></div>
+      </div>
+   </div>
 </section>
 
-<!-- STATS -->
-
-<section class="stats">
-
-<div class="stats-title">
-
-<h2>Agriculture Impact</h2>
-
-</div>
-
-<div class="stats-boxes">
-
-<div class="stats-box">
-
-<i class="fa-solid fa-users"></i>
-
-<h3>500+</h3>
-
-<p>Successful Farmers</p>
-
-</div>
-
-<div class="stats-box">
-
-<i class="fa-solid fa-indian-rupee-sign"></i>
-
-<h3>₹20Cr+</h3>
-
-<p>Total Farmer Earnings</p>
-
-</div>
-
-<div class="stats-box">
-
-<i class="fa-solid fa-seedling"></i>
-
-<h3>1000+</h3>
-
-<p>Organic Farms Created</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-
+<!-- 4. FINAL CTA -->
+<section class="st-cta-wrap">
+   <div class="container">
+      <div class="st-cta">
+         <div class="trophy"><i class="fas fa-trophy"></i></div>
+         <div class="txt">
+            <h2>Be a Part of Our Success Story</h2>
+            <p>Get the right guidance and support to grow your farming business.</p>
          </div>
+         <a class="st-btn yellow" href="agri-business.html">Explore Services <i class="fas fa-arrow-right"></i></a>
+      </div>
+   </div>
+</section>
+
+</div>
          <footer class="footer">
             <div class="footer-top wf100">
                <div class="container">
@@ -423,11 +128,7 @@ html{scroll-behavior:smooth;}
                         <!--Footer Widget Start-->
                         <div class="footer-widget">
                            <h4>Latest Posts</h4>
-                           <ul class="lastest-products">
-                              <li> <img src="images/flp1.jpg" alt="Top Organic Farming Methods For Beginners"> <strong><a href="blog-details.html?slug=top-organic-farming-tips">Top Organic Farming Methods For Beginners</a></strong> <span class="pdate"><i>Posted:</i> 10 May, 2026</span> </li>
-                              <li> <img src="images/flp2.jpg" alt="Government Schemes Helping Indian Farmers"> <strong><a href="blog-details.html?slug=government-schemes-every-farmer-should-know">Government Schemes Helping Indian Farmers</a></strong> <span class="pdate"><i>Posted:</i> 12 May, 2026</span> </li>
-                              <li> <img src="images/flp3.jpg" alt="Smart Irrigation Techniques Saving Water"> <strong><a href="blog-details.html?slug=smart-irrigation-techniques-saving-water">Smart Irrigation Techniques Saving Water</a></strong> <span class="pdate"><i>Posted:</i> 14 May, 2026</span> </li>
-                           </ul>
+                           <ul class="lastest-products" data-latest-posts="3"><li style="padding:0;">Loading...</li></ul>
                         </div>
                         <!--Footer Widget End-->
                      </div>
@@ -452,12 +153,13 @@ html{scroll-behavior:smooth;}
                      <div class="col-md-4 col-sm-4"> <img src="images/logo.png" alt="Gramin Saathi logo"> </div>
                      <div class="col-md-8 col-sm-8">
                         <p>© 2026 Gramin Saathi. All Rights Reserved.</p>
+                     </div>
                   </div>
                </div>
             </div>
          </footer>
       </div>
-      <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/jquery-3.3.1.min.js"></script>
       <script src="js/jquery-migrate-1.4.1.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
@@ -465,5 +167,53 @@ html{scroll-behavior:smooth;}
       <script src="js/jquery.prettyPhoto.js"></script>
       <script src="js/slick.min.js"></script>
       <script src="js/custom.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+      <script src="js/supabase-config.js"></script>
+      <script src="js/blog-common.js"></script>
+      <script>
+        // SAMPLE stories (design preview). Live site par asli kisano ki kahaniyan dikhengi:
+        // admin panel me jo testimonials "approved" hongi, wo in samples ki jagah apne aap aa jayengi.
+        const sampleStories = [
+          { farmer_name: "Savitri Devi", location: "Varanasi, Uttar Pradesh", tag: "Organic Farming", photo_url: "images/stories/story-savitri.jpg",
+            message: "Gramin Saathi ki jaankari se maine organic kheti shuru ki. Ab kharch kam hai aur meri sabji ka achha bhav milta hai." },
+          { farmer_name: "Ramesh Kumar", location: "Kalyani, West Bengal", tag: "Dairy Farming", photo_url: "images/stories/story-ramesh.jpg",
+            message: "Dairy farming ke liye yahan se jo guidance mili, usse mera dairy business kaafi aage badha hai." },
+          { farmer_name: "Mahesh Patel", location: "Indore, Madhya Pradesh", tag: "Quality Seeds", photo_url: "images/stories/story-mahesh.jpg",
+            message: "Behtar beej aur sahi jaankari se meri fasal ki paidavar badhi hai." }
+        ];
+
+        function renderStories(list) {
+          const grid = document.getElementById('storyGrid');
+          grid.innerHTML = list.slice(0, 9).map(s => {
+            const name = s.farmer_name || '';
+            const initial = (name.trim().charAt(0) || 'K').toUpperCase();
+            const photo = s.photo_url
+              ? `<img src="${gsEsc(s.photo_url)}" alt="${gsEsc(name)}" loading="lazy">`
+              : `<div class="ini">${gsEsc(initial)}</div>`;
+            const tag = s.tag ? `<span class="tag">${gsEsc(s.tag)}</span>` : '';
+            return `
+              <div class="st-card">
+                <div class="ph">${photo}</div>
+                <div class="tx">
+                  <div class="q"><i class="fas fa-quote-left"></i></div>
+                  ${tag}
+                  <p class="msg">${gsEsc(s.message)}</p>
+                  <div class="nm">${gsEsc(name)}</div>
+                  <div class="loc"><i class="fas fa-map-marker-alt"></i>${gsEsc(s.location || '')}</div>
+                </div>
+              </div>`;
+          }).join('');
+        }
+
+        renderStories(sampleStories);
+        (async () => {
+          try {
+            const { data, error } = await supabaseClient
+              .from('testimonials').select('*').eq('approved', true)
+              .order('created_at', { ascending: false });
+            if (!error && data && data.length > 0) renderStories(data);
+          } catch (e) { /* sample cards hi rahenge */ }
+        })();
+      </script>
    </body>
 </html>
