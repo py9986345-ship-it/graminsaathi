@@ -1,0 +1,89 @@
+/* ===== Government Schemes page ===== */
+html{scroll-behavior:smooth;}
+.page-content *{box-sizing:border-box;}
+.sc-sec{padding:80px 0;}
+.sc-alt{background:#f4f8f2;}
+.sc-head{text-align:center;max-width:720px;margin:0 auto 45px;}
+.sc-head h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.sc-head h2{font-size:34px;line-height:1.25;color:#1b2e1d;margin:0 0 12px;}
+.sc-head p{color:#666;font-size:16px;margin:0;}
+.sc-btn{display:inline-block;padding:13px 32px;border-radius:30px;font-weight:600;font-size:16px;transition:.2s;}
+.sc-btn.p{background:#66bb6a;color:#fff;}
+.sc-btn.p:hover{background:#4caf50;color:#fff;text-decoration:none;}
+.sc-img{width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.14);display:block;}
+
+/* 1. Hero */
+.sc-hero{min-height:560px;display:flex;align-items:center;color:#fff;
+  background:linear-gradient(90deg,rgba(10,50,22,.9) 0%,rgba(10,50,22,.75) 45%,rgba(10,50,22,.4) 100%),url('../images/schemes/hero.jpg') center/cover no-repeat;}
+.sc-hero .wrap{max-width:640px;padding:70px 0;}
+.sc-hero small{display:inline-block;background:rgba(102,187,106,.9);padding:5px 16px;border-radius:20px;font-size:13px;letter-spacing:2px;margin-bottom:18px;}
+.sc-hero h1{font-size:50px;line-height:1.12;color:#fff;margin:0 0 14px;font-weight:700;letter-spacing:.5px;}
+.sc-hero h3{font-size:24px;color:#c8e6c9;font-weight:500;margin:0 0 16px;}
+.sc-hero p{font-size:17px;line-height:1.8;color:#e8f5e9;margin:0 0 30px;}
+
+/* 2. Scheme cards */
+.sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.sc-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.07);display:flex;flex-direction:column;transition:.25s;scroll-margin-top:90px;}
+.sc-card:hover{box-shadow:0 10px 26px rgba(46,125,50,.2);transform:translateY(-4px);}
+.sc-card img{width:100%;height:200px;object-fit:cover;display:block;}
+.sc-card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1;}
+.sc-card h4{margin:0 0 6px;font-size:20px;color:#1b2e1d;line-height:1.3;}
+.sc-card .desc{margin:0 0 14px;color:#666;font-size:15px;line-height:1.6;}
+.sc-card h6{margin:0 0 6px;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#2e7d32;font-weight:700;}
+.sc-card ul{list-style:none;padding:0;margin:0 0 14px;}
+.sc-card ul li{position:relative;padding:3px 0 3px 22px;color:#333;font-size:14.5px;line-height:1.55;}
+.sc-card ul li:before{content:"\f058";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;left:0;top:4px;color:#66bb6a;font-size:14px;}
+.sc-card .elig{background:#f4f8f2;border-radius:10px;padding:12px 14px;font-size:14px;color:#444;line-height:1.55;margin:0 0 18px;}
+.sc-card .actions{margin-top:auto;}
+.sc-card .actions a.btn-d{display:inline-block;background:#2e7d32;color:#fff;padding:10px 24px;border-radius:25px;font-weight:600;font-size:15px;}
+.sc-card .actions a.btn-d:hover{background:#256428;text-decoration:none;color:#fff;}
+.sc-card .actions a.off{display:block;margin-top:10px;font-size:13px;color:#2e7d32;}
+.sc-note{max-width:900px;margin:34px auto 0;text-align:center;font-size:14px;color:#6b7a6c;line-height:1.7;}
+
+/* 3. Categories */
+.sc-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.sc-cat{display:block;background:#e8f5e9;border-radius:14px;padding:30px 20px;text-align:center;transition:.25s;color:inherit;}
+.sc-cat:hover{background:#d7eeda;transform:translateY(-5px);text-decoration:none;color:inherit;}
+.sc-cat i{font-size:30px;color:#2e7d32;margin-bottom:14px;}
+.sc-cat h4{font-size:19px;color:#1b2e1d;margin:0 0 6px;}
+.sc-cat p{margin:0;font-size:14.5px;color:#5a6a5b;}
+
+/* 4. How to apply */
+.sc-apply h5{color:#2e7d32;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;}
+.sc-apply h2{font-size:34px;color:#1b2e1d;margin:0 0 24px;line-height:1.25;}
+.sc-step{display:flex;gap:18px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #e3ece2;}
+.sc-step:last-of-type{border-bottom:none;}
+.sc-step .num{flex:0 0 46px;width:46px;height:46px;border-radius:50%;background:#2e7d32;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.sc-step h4{margin:0 0 4px;font-size:19px;color:#1b2e1d;}
+.sc-step p{margin:0;color:#666;font-size:15px;line-height:1.6;}
+.sc-help{margin-top:16px;background:#f4f8f2;border-radius:10px;padding:14px 16px;font-size:14.5px;color:#444;line-height:1.6;}
+.sc-help i{color:#2e7d32;margin-right:6px;}
+
+/* 5. Documents */
+.sc-docs{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+.sc-doc{flex:0 0 calc(20% - 16px);min-width:190px;background:#fff;border:1px solid #e1ece0;border-radius:14px;padding:26px 18px;text-align:center;}
+.sc-doc i{width:56px;height:56px;border-radius:50%;background:#e8f5e9;color:#2e7d32;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+.sc-doc h4{margin:0;font-size:16.5px;color:#1b2e1d;line-height:1.4;}
+.sc-doc p{margin:6px 0 0;font-size:13px;color:#7a887b;}
+
+/* 6. CTA */
+.sc-cta{background:#14532d;color:#fff;text-align:center;padding:85px 0;}
+.sc-cta h2{font-size:38px;color:#fff;margin:0 0 14px;line-height:1.25;}
+.sc-cta p{font-size:18px;color:#cfe8d2;max-width:680px;margin:0 auto 28px;line-height:1.7;}
+
+@media (max-width:991px){
+  .sc-grid{grid-template-columns:repeat(2,1fr);}
+  .sc-cats{grid-template-columns:repeat(2,1fr);}
+  .sc-doc{flex:0 0 calc(33.333% - 14px);}
+  .sc-img{margin-bottom:25px;}
+}
+@media (max-width:767px){
+  .sc-sec,.sc-cta{padding:55px 0;}
+  .sc-hero{min-height:480px;background-position:70% center;}
+  .sc-hero h1{font-size:32px;}
+  .sc-hero h3{font-size:19px;}
+  .sc-head h2,.sc-apply h2{font-size:27px;}
+  .sc-grid,.sc-cats{grid-template-columns:1fr;}
+  .sc-doc{flex:0 0 calc(50% - 10px);min-width:0;}
+  .sc-cta h2{font-size:28px;}
+}
