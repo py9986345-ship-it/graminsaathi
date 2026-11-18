@@ -5,10 +5,10 @@
 <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="">
+      <meta name="description" content="What farmers say about Gramin Saathi. Read real experiences from farmers across India and share your own.">
       <meta name="author" content="">
       <link rel="icon" href="images/favicon.png">
-      <title>ECO HTML</title>
+      <title>Testimonials - Gramin Saathi</title>
       <!-- CSS FILES START -->
       <link href="css/custom.css" rel="stylesheet">
       <link href="css/color.css" rel="stylesheet">
@@ -17,6 +17,7 @@
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/prettyPhoto.css" rel="stylesheet">
       <link href="css/all.min.css" rel="stylesheet">
+      <link href="css/testimonials.css" rel="stylesheet">
       <!-- CSS FILES End -->
    </head>
    <body>
@@ -53,56 +54,74 @@
             </nav>
          </header>
          <!--Header End-->
-         <!--Inner Header Start-->
-         <section class="wf100 p100 inner-header">
-            <div class="container">
-               <h1>Testimonials</h1>
-               <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="testimonials.html"> Testimonials </a></li>
-               </ul>
-            </div>
-         </section>
-         <!--Inner Header End--> 
-         <!--Testimonials Start-->
-         <section class="testimonials-section wf100 p80">
-            <h1 class="text-center">What Farmers Say</h1>
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div id="h3testimonials" class="owl-carousel owl-theme">
-                        <p style="text-align:center; width:100%;">Loading testimonials...</p>
-                     </div>
-                  </div>
+         <div class="page-content">
+
+<!-- 1. HERO -->
+<section class="tm-hero">
+   <div class="container">
+      <div class="wrap">
+         <small>TESTIMONIALS</small>
+         <h1>What Farmers Say About Gramin Saathi</h1>
+         <h3>Real experiences from farmers across India</h3>
+         <p>Read how farmers use Gramin Saathi to learn better farming methods, find government support and grow their income.</p>
+         <a class="tm-btn p" href="#reviews">Read Testimonials</a>
+         <a class="tm-btn o" href="#share">Share Your Experience</a>
+      </div>
+   </div>
+</section>
+
+<!-- 2. TESTIMONIAL CARDS -->
+<section class="tm-sec" id="reviews">
+   <div class="container">
+      <div class="tm-head"><h5>Farmer Voices</h5><h2>Kisano ki apni baat</h2><p>Experiences shared by farmers and approved by our team.</p></div>
+      <div class="tm-grid" id="tmGrid"><div class="tm-loading">Loading testimonials...</div></div>
+      <div class="tm-more" id="tmMore" style="display:none;"><button type="button" class="tm-btn g" id="tmMoreBtn">Show More</button></div>
+   </div>
+</section>
+
+<!-- 3. SHARE YOUR EXPERIENCE -->
+<section class="tm-sec tm-alt" id="share">
+   <div class="container">
+      <div class="tm-share">
+         <div class="tm-share-info">
+            <h5>Your Voice Matters</h5>
+            <h2>Share Your Experience</h2>
+            <p>Has Gramin Saathi helped you with farming, schemes or your farm business? Tell us in your own words. Your honest experience can guide another farmer.</p>
+            <ul>
+               <li>Share only your real experience</li>
+               <li>Our team reviews every message before it is published</li>
+               <li>Your name and village are shown only after approval</li>
+            </ul>
+         </div>
+         <div class="tm-form">
+            <form id="testimonialForm" novalidate>
+               <div class="two">
+                  <div><label for="t-name">Your Name</label><input type="text" id="t-name" placeholder="e.g. Ramesh Kumar" required maxlength="100" autocomplete="name"></div>
+                  <div><label for="t-location">Village / City</label><input type="text" id="t-location" placeholder="e.g. Sikar, Rajasthan" maxlength="100"></div>
                </div>
-            </div>
-         </section>
-         <!--Testimonials End--> 
-         <!--Testimonial Submit Form Start-->
-         <section class="wf100 p80 bg-white">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-8 offset-md-2">
-                     <h3 class="text-center" style="margin-bottom:20px;">Share Your Experience</h3>
-                     <form id="testimonialForm">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <input type="text" id="t-name" class="form-control" placeholder="Your Name" required style="margin-bottom:15px; padding:10px; width:100%;">
-                           </div>
-                           <div class="col-md-6">
-                              <input type="text" id="t-location" class="form-control" placeholder="Village / City" style="margin-bottom:15px; padding:10px; width:100%;">
-                           </div>
-                        </div>
-                        <textarea id="t-message" class="form-control" placeholder="Your experience with Gramin Saathi" required style="width:100%; min-height:100px; padding:10px; margin-bottom:15px;"></textarea>
-                        <button type="submit" class="fsubmit" style="border:none; padding:10px 25px; background:#2e7d32; color:#fff; border-radius:5px; cursor:pointer;">Submit</button>
-                        <p id="t-status" style="margin-top:10px;"></p>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!--Testimonial Submit Form End-->
-         <!--Footer Start-->
+               <label for="t-message">Your Experience</label>
+               <textarea id="t-message" placeholder="Gramin Saathi ke saath aapka experience..." required maxlength="1500"></textarea>
+               <input type="text" id="t-website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+               <label class="consent"><input type="checkbox" id="t-consent" required> I agree that my name and village may be shown on the Gramin Saathi website after approval.</label>
+               <button type="submit" class="tm-btn g" id="t-submit">Submit</button>
+               <p id="t-status" role="status"></p>
+            </form>
+         </div>
+      </div>
+   </div>
+</section>
+
+<!-- 4. CTA -->
+<section class="tm-cta">
+   <div class="container">
+      <h2>Your Experience Can Inspire Another Farmer</h2>
+      <p>Read more farmer journeys or explore the farming guidance and support Gramin Saathi offers.</p>
+      <a class="tm-btn p" href="success-story.html">Read Success Stories</a>
+      <a class="tm-btn o" href="agri-business.html">Explore Services</a>
+   </div>
+</section>
+
+</div>
          <footer class="footer">
             <div class="footer-top wf100">
                <div class="container">
@@ -160,83 +179,113 @@
                      <div class="col-md-4 col-sm-4"> <img src="images/logo.png" alt="Gramin Saathi logo"> </div>
                      <div class="col-md-8 col-sm-8">
                         <p>© 2026 Gramin Saathi. All Rights Reserved.</p>
+                     </div>
                   </div>
                </div>
             </div>
          </footer>
-         <!--Footer End--> 
       </div>
-      <!--   JS Files Start  --> 
-      <script src="js/jquery-3.3.1.min.js"></script> 
-      <script src="js/jquery-migrate-1.4.1.min.js"></script> 
-      <script src="js/popper.min.js"></script> 
-      <script src="js/bootstrap.min.js"></script> 
-      <script src="js/owl.carousel.min.js"></script> 
-      <script src="js/jquery.prettyPhoto.js"></script> 
-      <script src="js/isotope.min.js"></script> 
+            <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/jquery-migrate-1.4.1.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/owl.carousel.min.js"></script>
+      <script src="js/jquery.prettyPhoto.js"></script>
+      <script src="js/isotope.min.js"></script>
       <script src="js/custom.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
       <script src="js/supabase-config.js"></script>
       <script src="js/blog-common.js"></script>
       <script>
-        const fallbackTestimonials = [
-          { farmer_name: "Ramesh Kumar", location: "Punjab", message: "Gramin Saathi ki wajah se mujhe organic farming ke baare mein sahi jaankari mili aur meri fasal ki quality behtar hui." },
-          { farmer_name: "Sunita Devi", location: "Rajasthan", message: "Government schemes ke baare mein pehle pata nahi tha, is site se PM Kisan yojana ka labh mila." },
-          { farmer_name: "Vijay Patil", location: "Maharashtra", message: "Smart irrigation tips follow karke paani ki bachat ho rahi hai aur upaj bhi badhi hai." }
+        // SAMPLE cards (design preview). Live site par admin panel me "approved" testimonials
+        // aate hi ye samples hat jayenge aur asli testimonials dikhengi.
+        const sampleTestimonials = [
+          { farmer_name: "Ramesh Yadav", location: "Rasoolpur, Ghazipur, Uttar Pradesh", message: "Gramin Saathi se organic kheti ki sahi jaankari mili. Ab khaad par kharch kam hai aur meri sabji ka bhav pehle se behtar milta hai." },
+          { farmer_name: "Sunita Devi", location: "Dhani Mehra, Sikar, Rajasthan", message: "Sarkari yojanaon ke baare mein humein kuch pata nahi tha. Is site se PM Kisan ka form bharna sikha aur ab paisa seedha khate mein aata hai." },
+          { farmer_name: "Gurpreet Singh", location: "Dhaliwal, Sangrur, Punjab", message: "Drip irrigation ke tips follow kiye, paani ki bahut bachat hui aur fasal bhi achhi hui." },
+          { farmer_name: "Vijay Patil", location: "Nimgaon, Nashik, Maharashtra", message: "Pyaaz ki fasal ke liye sahi beej aur samay ki salah mili. Is saal nuksaan nahi hua." },
+          { farmer_name: "Kamla Bai", location: "Barkheda, Sehore, Madhya Pradesh", message: "Dairy shuru karne ke liye yahan se poori jaankari mili. Ghar baithe doodh se alag kamai ho rahi hai." },
+          { farmer_name: "Mohan Mahto", location: "Chandwara, Koderma, Jharkhand", message: "Bhasha aasaan hai aur baatein seedhi. Jab bhi dikkat hui, Farmer Support se madad mil gayi." }
         ];
 
-        function renderTestimonials(list) {
-          const container = document.getElementById('h3testimonials');
-          container.innerHTML = '';
-          list.forEach(t => {
-            container.innerHTML += `
-              <div class="item">
-                <p>${gsEsc(t.message)}</p>
-                <div class="tuser">
-                  ${t.photo_url ? `<img src="${gsEsc(t.photo_url)}" alt="${gsEsc(t.farmer_name)}">` : ''}
-                  <strong>${gsEsc(t.farmer_name)}</strong> ${gsEsc(t.location || '')}
-                </div>
-              </div>`;
-          });
+        const PAGE_SIZE = 9;
+        let allItems = [], shown = 0;
+
+        function cardHTML(t) {
+          const name = t.farmer_name || '';
+          const initial = (name.trim().charAt(0) || 'K').toUpperCase();
+          const avatar = t.photo_url ? `<img src="${gsEsc(t.photo_url)}" alt="${gsEsc(name)}" loading="lazy">` : gsEsc(initial);
+          return `
+            <div class="tm-card">
+              <div class="q"><i class="fas fa-quote-left"></i></div>
+              <p class="msg">${gsEsc(t.message)}</p>
+              <div class="tm-user">
+                <div class="av">${avatar}</div>
+                <div><strong>${gsEsc(name)}</strong><small>${gsEsc(t.location || '')}</small></div>
+              </div>
+            </div>`;
         }
 
+        function showMore(reset) {
+          const grid = document.getElementById('tmGrid');
+          if (reset) { grid.innerHTML = ''; shown = 0; }
+          const next = allItems.slice(shown, shown + PAGE_SIZE);
+          grid.insertAdjacentHTML('beforeend', next.map(cardHTML).join(''));
+          shown += next.length;
+          document.getElementById('tmMore').style.display = shown < allItems.length ? 'block' : 'none';
+        }
+
+        document.getElementById('tmMoreBtn').addEventListener('click', () => showMore(false));
+
+        allItems = sampleTestimonials; showMore(true);
         (async () => {
           try {
             const { data, error } = await supabaseClient
-              .from('testimonials')
-              .select('*')
-              .eq('approved', true)
+              .from('testimonials').select('*').eq('approved', true)
               .order('created_at', { ascending: false });
-            if (error || !data || data.length === 0) {
-              renderTestimonials(fallbackTestimonials);
-            } else {
-              renderTestimonials(data);
-            }
-          } catch (e) {
-            renderTestimonials(fallbackTestimonials);
-          }
+            if (!error && data && data.length > 0) { allItems = data; showMore(true); }
+          } catch (e) { /* sample cards hi rahenge */ }
         })();
 
         document.getElementById('testimonialForm').addEventListener('submit', async function (e) {
           e.preventDefault();
           const statusEl = document.getElementById('t-status');
-          const payload = {
-            farmer_name: document.getElementById('t-name').value,
-            location: document.getElementById('t-location').value,
-            message: document.getElementById('t-message').value
-          };
+          const btn = document.getElementById('t-submit');
+          const name = document.getElementById('t-name').value.trim();
+          const location = document.getElementById('t-location').value.trim();
+          const message = document.getElementById('t-message').value.trim();
+          statusEl.className = '';
+          if (!name || message.length < 15) {
+            statusEl.className = 'err';
+            statusEl.textContent = 'Please enter your name and a message of at least 15 characters.';
+            return;
+          }
+          if (!document.getElementById('t-consent').checked) {
+            statusEl.className = 'err';
+            statusEl.textContent = 'Please tick the box to allow us to show your name and village.';
+            return;
+          }
+          // spam trap: real users never fill this hidden field
+          if (document.getElementById('t-website').value) {
+            statusEl.className = 'ok';
+            statusEl.textContent = 'Thank you! Your testimonial will appear after admin approval.';
+            this.reset();
+            return;
+          }
+          btn.disabled = true;
           statusEl.textContent = 'Submitting...';
-          const { error } = await supabaseClient.from('testimonials').insert(payload);
+          const { error } = await supabaseClient.from('testimonials').insert({ farmer_name: name, location: location, message: message });
+          btn.disabled = false;
           if (error) {
+            statusEl.className = 'err';
             statusEl.textContent = 'Something went wrong. Please try again.';
             console.error(error);
             return;
           }
+          statusEl.className = 'ok';
           statusEl.textContent = 'Thank you! Your testimonial will appear after admin approval.';
-          document.getElementById('testimonialForm').reset();
+          this.reset();
         });
       </script>
    </body>
-
-
 </html>
